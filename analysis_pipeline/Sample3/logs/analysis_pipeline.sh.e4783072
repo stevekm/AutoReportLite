@@ -1,0 +1,78 @@
++ umask 007
++ (( 6 != 6 ))
++ module unload r
+++ /cm/local/apps/environment-modules/3.2.6//Modules/3.2.6/bin/modulecmd bash unload r
++ eval LD_LIBRARY_PATH=/cm/shared/apps/sge/2011.11p1/lib/linux-x64:/cm/shared/apps/sge/current/lib/linux-x64 ';export' 'LD_LIBRARY_PATH;LOADEDMODULES=sge/2011.11p1:local:default-environment:gcc/4.4:python/2.7:git/2.6.5' ';export' 'LOADEDMODULES;PATH=/local/apps/git/2.6.5/bin:/local/apps/python/2.7.3/bin:/cm/shared/apps/sge/2011.11p1/bin/linux-x64:/usr/lib64/qt-3.3/bin:/tmp/4783072.1.highmem.q:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/sbin:/usr/sbin:/ifs/home/at570/disk1/Resources/Bin/linux:/ifs/home/kellys04/software:/ifs/home/kellys04/bin' ';export' 'PATH;_LMFILES_=/cm/shared/modulefiles/sge/2011.11p1:/cm/local/modulefiles/local:/cm/shared/modulefiles/default-environment:/cm/shared/modulefiles/gcc/4.4:/local/modulefiles/python/2.7:/local/modulefiles/git/2.6.5' ';export' '_LMFILES_;unset' 'R_ROOT;'
+++ LD_LIBRARY_PATH=/cm/shared/apps/sge/2011.11p1/lib/linux-x64:/cm/shared/apps/sge/current/lib/linux-x64
+++ export LD_LIBRARY_PATH
+++ LOADEDMODULES=sge/2011.11p1:local:default-environment:gcc/4.4:python/2.7:git/2.6.5
+++ export LOADEDMODULES
+++ PATH=/local/apps/git/2.6.5/bin:/local/apps/python/2.7.3/bin:/cm/shared/apps/sge/2011.11p1/bin/linux-x64:/usr/lib64/qt-3.3/bin:/tmp/4783072.1.highmem.q:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/sbin:/usr/sbin:/ifs/home/at570/disk1/Resources/Bin/linux:/ifs/home/kellys04/software:/ifs/home/kellys04/bin
+++ export PATH
+++ _LMFILES_=/cm/shared/modulefiles/sge/2011.11p1:/cm/local/modulefiles/local:/cm/shared/modulefiles/default-environment:/cm/shared/modulefiles/gcc/4.4:/local/modulefiles/python/2.7:/local/modulefiles/git/2.6.5
+++ export _LMFILES_
+++ unset R_ROOT
++ module load r/3.2.3
+++ /cm/local/apps/environment-modules/3.2.6//Modules/3.2.6/bin/modulecmd bash load r/3.2.3
++ eval LD_LIBRARY_PATH=/local/apps/R/3.2.3/lib64:/cm/shared/apps/sge/2011.11p1/lib/linux-x64:/cm/shared/apps/sge/current/lib/linux-x64 ';export' 'LD_LIBRARY_PATH;LOADEDMODULES=sge/2011.11p1:local:default-environment:gcc/4.4:python/2.7:git/2.6.5:r/3.2.3' ';export' 'LOADEDMODULES;MANPATH=/local/apps/R/3.2.3/share/man:/cm/shared/apps/sge/2011.11p1/man:ignore:/cm/local/apps/environment-modules/3.2.6/man' ';export' 'MANPATH;PATH=/local/apps/R/3.2.3/bin:/local/apps/git/2.6.5/bin:/local/apps/python/2.7.3/bin:/cm/shared/apps/sge/2011.11p1/bin/linux-x64:/usr/lib64/qt-3.3/bin:/tmp/4783072.1.highmem.q:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/sbin:/usr/sbin:/ifs/home/at570/disk1/Resources/Bin/linux:/ifs/home/kellys04/software:/ifs/home/kellys04/bin' ';export' 'PATH;R_ROOT=/local/apps/R/3.2.3' ';export' 'R_ROOT;_LMFILES_=/cm/shared/modulefiles/sge/2011.11p1:/cm/local/modulefiles/local:/cm/shared/modulefiles/default-environment:/cm/shared/modulefiles/gcc/4.4:/local/modulefiles/python/2.7:/local/modulefiles/git/2.6.5:/local/modulefiles/r/3.2.3' ';export' '_LMFILES_;'
+++ LD_LIBRARY_PATH=/local/apps/R/3.2.3/lib64:/cm/shared/apps/sge/2011.11p1/lib/linux-x64:/cm/shared/apps/sge/current/lib/linux-x64
+++ export LD_LIBRARY_PATH
+++ LOADEDMODULES=sge/2011.11p1:local:default-environment:gcc/4.4:python/2.7:git/2.6.5:r/3.2.3
+++ export LOADEDMODULES
+++ MANPATH=/local/apps/R/3.2.3/share/man:/cm/shared/apps/sge/2011.11p1/man:ignore:/cm/local/apps/environment-modules/3.2.6/man
+++ export MANPATH
+++ PATH=/local/apps/R/3.2.3/bin:/local/apps/git/2.6.5/bin:/local/apps/python/2.7.3/bin:/cm/shared/apps/sge/2011.11p1/bin/linux-x64:/usr/lib64/qt-3.3/bin:/tmp/4783072.1.highmem.q:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/sbin:/usr/sbin:/ifs/home/at570/disk1/Resources/Bin/linux:/ifs/home/kellys04/software:/ifs/home/kellys04/bin
+++ export PATH
+++ R_ROOT=/local/apps/R/3.2.3
+++ export R_ROOT
+++ _LMFILES_=/cm/shared/modulefiles/sge/2011.11p1:/cm/local/modulefiles/local:/cm/shared/modulefiles/default-environment:/cm/shared/modulefiles/gcc/4.4:/local/modulefiles/python/2.7:/local/modulefiles/git/2.6.5:/local/modulefiles/r/3.2.3
+++ export _LMFILES_
++ OUTDIR=/ifs/home/kellys04/AutoReportLite/analysis_pipeline/Sample3
++ FASTQ_R1=/ifs/data/sequence/results/smithlab/fastq/Sample3_R1.fastq.gz
++ FASTQ_R2=/ifs/data/sequence/results/smithlab/fastq/Sample3_R2.fastq.gz
++ SAMPLEID=Sample3
++ GENOME=mm10
++ GENOME_PATH=/local/data/iGenomes/Mus_musculus/UCSC/mm10/Sequence/BowtieIndex/genome
++ THREADS=16
++ echo 'OUTDIR is /ifs/home/kellys04/AutoReportLite/analysis_pipeline/Sample3'
++ echo 'FASTQ_R1 is /ifs/data/sequence/results/smithlab/fastq/Sample3_R1.fastq.gz'
++ echo 'FASTQ_R2 is /ifs/data/sequence/results/smithlab/fastq/Sample3_R2.fastq.gz'
++ echo 'SAMPLEID is Sample3'
++ echo 'GENOME is mm10'
++ echo 'GENOME_PATH is /local/data/iGenomes/Mus_musculus/UCSC/mm10/Sequence/BowtieIndex/genome'
++ echo 'THREADS is 16'
+++ basename /cm/local/apps/sge/var/spool/highmem001/job_scripts/4783072
++ zz=4783072
+++ dirname /cm/local/apps/sge/var/spool/highmem001/job_scripts/4783072
++ za=/cm/local/apps/sge/var/spool/highmem001/job_scripts
++ '[' '!' -d logs ']'
+++ date -u +%Y%m%dt%H%M%S
++ LOG_FILE=logs/scriptlog.analysis_pipeline.sh.20160429t173756.highmem001.61389.22646
++ echo 'This is the log file for the script.'
++ echo -e '\n pwd is:\n/ifs/home/kellys04/AutoReportLite/analysis_pipeline/Sample3\n'
++ echo -e '\nScript file is:\nanalysis_pipeline.sh\n'
++ echo -e '\nScript file contents:\n\n%%%%%%%%%%%%%%%%%%%%%%%%%%%%'
++ cat /cm/local/apps/sge/var/spool/highmem001/job_scripts/4783072
++ Rscript --slave --no-save --no-restore - Sample3
+
+R loaded
+Script args are:
+[1] "Sample3"
+
+Saving plot  Sample3.random_distribution.pdf 
+null device 
+          1 
+
+Saving plot  Sample3.distribution_histogram.pdf 
+null device 
+          1 
+[1] "Linux 2.6.32-573.3.1.el6.x86_64 #1 SMP Thu Aug 13 22:55:16 UTC 2015"
+R version 3.2.3 (2015-12-10)
+Platform: x86_64-pc-linux-gnu (64-bit)
+Running under: CentOS release 6.3 (Final)
+
+locale:
+[1] C
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  base     

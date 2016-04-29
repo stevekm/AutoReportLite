@@ -1,0 +1,7 @@
+OUTDIR is /ifs/home/kellys04/AutoReportLite/analysis_pipeline/Sample5
+FASTQ_R1 is /ifs/data/sequence/results/smithlab/fastq/Sample5_R1.fastq.gz
+FASTQ_R2 is /ifs/data/sequence/results/smithlab/fastq/Sample5_R2.fastq.gz
+SAMPLEID is Sample5
+GENOME is mm10
+GENOME_PATH is /local/data/iGenomes/Mus_musculus/UCSC/mm10/Sequence/BowtieIndex/genome
+THREADS is 16

@@ -1,0 +1,7 @@
+SampleID	Control	genome	R1	R2	ref_path
+Sample1	Sample2	mm10	/ifs/data/sequence/results/smithlab/fastq/Sample1_R1.fastq.gz	/ifs/data/sequence/results/smithlab/fastq/Sample1_R2.fastq.gz	/local/data/iGenomes/Mus_musculus/UCSC/mm10/Sequence/Bowtie2Index/genome
+Sample2	NA	mm10	/ifs/data/sequence/results/smithlab/fastq/Sample2_R1.fastq.gz	/ifs/data/sequence/results/smithlab/fastq/Sample2_R2.fastq.gz	/local/data/iGenomes/Mus_musculus/UCSC/mm10/Sequence/Bowtie2Index/genome
+Sample3	Sample4	mm10	/ifs/data/sequence/results/smithlab/fastq/Sample3_R1.fastq.gz	/ifs/data/sequence/results/smithlab/fastq/Sample3_R2.fastq.gz	/local/data/iGenomes/Mus_musculus/UCSC/mm10/Sequence/Bowtie2Index/genome
+Sample4	NA	mm10	/ifs/data/sequence/results/smithlab/fastq/Sample4_R1.fastq.gz	/ifs/data/sequence/results/smithlab/fastq/Sample4_R2.fastq.gz	/local/data/iGenomes/Mus_musculus/UCSC/mm10/Sequence/Bowtie2Index/genome
+Sample5	NA	mm10	/ifs/data/sequence/results/smithlab/fastq/Sample5_R1.fastq.gz	/ifs/data/sequence/results/smithlab/fastq/Sample5_R2.fastq.gz	/local/data/iGenomes/Mus_musculus/UCSC/mm10/Sequence/Bowtie2Index/genome
+
