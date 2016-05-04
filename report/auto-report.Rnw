@@ -140,7 +140,9 @@ for(i in seq_along(sampleDirs)){
   # print it in a new frame
   cat("\\subsubsection{", latexTranslate("Stats"), "}\n", sep="")
   cat("\\begin{frame}{", latexTranslate("Stats"), " }\n", sep="")
-  cat("\\scriptsize{",cat(latexTranslate(tmpAlignStats),sep = "\n\n"),"}\n",sep = "")
+  cat("\\small{",sep = "\n")
+  cat(latexTranslate(tmpAlignStats),sep = "\n\n")    
+  cat("}\n",sep = "\n")
   cat("\\end{frame}\n\n")
   
   # PRINT THE FIGURES
