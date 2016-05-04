@@ -174,11 +174,12 @@ for(i in seq_along(sampleDirs)){
 \section{Session Information}
 % \begin{frame}{System and Session Information}
 % \begin{frame}[fragile]{System and Session Information}
+% \small{This report was prepared using the AutoReportLite template, available at \url{https://github.com/stevekm/AutoReportLite}}
 <<Session>>=
 system('uname -srv',intern=T)
 sessionInfo()
 save.image(compress = TRUE)
 @
-\LaTeX{} version: \LaTeXe~ \fmtversion
+\scriptsize{\LaTeX{} version: \LaTeXe~ \fmtversion}
 % \end{frame}
 \end{document}

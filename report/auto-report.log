@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2015.9.23)  4 MAY 2016 17:13
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2015.9.23)  4 MAY 2016 17:16
 entering extended mode
  %&-line parsing enabled.
 **auto-report.tex
@@ -947,8 +947,8 @@ _distribution.pdf> [17
  </ifs/home/kellys04/AutoReportLite/analysis_pipeline/Sample5/Sample5.random_di
 stribution.pdf>]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <6> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 327.
-LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 327
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 328.
+LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 328
 .
 
 (/usr/share/texmf/tex/latex/base/ts1cmtt.fd
@@ -1098,21 +1098,21 @@ LaTeX Font Warning: Size substitutions with differences
 (\end occurred when \ifx on line 111 was incomplete)
 (\end occurred when \ifx on line 111 was incomplete) 
 Here is how much of TeX's memory you used:
- 9724 strings out of 256214
- 171674 string characters out of 1917000
+ 9720 strings out of 256214
+ 171645 string characters out of 1917000
  252148 words of memory out of 1500000
- 12651 multiletter control sequences out of 10000+200000
- 10284 words of font info for 39 fonts, out of 1200000 for 2000
+ 12650 multiletter control sequences out of 10000+200000
+ 9845 words of font info for 38 fonts, out of 1200000 for 2000
  645 hyphenation exceptions out of 8191
- 44i,15n,74p,830b,576s stack positions out of 5000i,500n,6000p,200000b,15000s
+ 44i,15n,74p,830b,580s stack positions out of 5000i,500n,6000p,200000b,15000s
  </ifs/home/kellys04/.texli
 ve2007/texmf-var/fonts/pk/ljfour/jknappen/ec/tctt0800.450pk></usr/share/texmf/f
-onts/type1/bluesky/cm/cmmi8.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmss10
+onts/type1/bluesky/cm/cmmi5.pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmss10
 .pfb></usr/share/texmf/fonts/type1/bluesky/cm/cmss8.pfb></usr/share/texmf/fonts
 /type1/bluesky/cm/cmtt8.pfb>
-Output written on auto-report.pdf (18 pages, 281246 bytes).
+Output written on auto-report.pdf (18 pages, 281809 bytes).
 PDF statistics:
- 807 PDF objects out of 1000 (max. 8388607)
+ 808 PDF objects out of 1000 (max. 8388607)
  59 named destinations out of 1000 (max. 131072)
  154 words of extra memory for PDF output out of 10000 (max. 10000000)
 
