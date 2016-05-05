@@ -59,8 +59,10 @@ cat "$0" >> $LOG_FILE
 
 
 # ~~~~~~ # ~~~~~~ # ~~~~~~ run commands ~~~~~~ # ~~~~~~ # ~~~~~~ # ~~~~~~ 
-# make some sample plots, from here: http://www.r-bloggers.com/normal-distribution-functions/
 
+# place your analysis commands to run on each sample here
+
+# make some sample plots, from here: http://www.r-bloggers.com/normal-distribution-functions/
 (
 Rscript --slave --no-save --no-restore - "${SAMPLEID}" <<EOFB
   ## R code
