@@ -24,7 +24,8 @@ fi
 module unload r
 module load r/3.2.3 
 
-# get the script arguments
+# ~~~~~~ script args ~~~~~~ #
+# get the script arguments here
 OUTDIR="$1" # outdir
 FASTQ_R1="$2" # Read 1 input file
 FASTQ_R2="$3" # Read 2 file
