@@ -7,6 +7,8 @@ output: html_document
 
 ```{r,engine='bash'}
 # I usually just copy/paste these commands into the terminal (bash shell)
+# alternatively you could use something like Rstudio to compile this Rmd document
+# or just save these steps as a bash script; pick which ever is easiest for you!
 ProjDir="$HOME/AutoReportLite"
 testOutdir="$ProjDir/analysis_pipeline"
 samplesheet="$ProjDir/sample-sheet.tsv"
