@@ -4,6 +4,7 @@
 % by Stephen Kelly
 % April 29, 2016
 % https://github.com/stevekm/AutoReportLite
+% 
 % ~~~~~~~~~~~~~~~~~~~~~~~~
 \documentclass[8pt]{beamer} % start LaTeX document
 % set up parameters in R for use in the document
