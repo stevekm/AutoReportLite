@@ -4,6 +4,8 @@
 ## this script will embed fonts into a PDF document
 ## this requires the fonts to be installed on your computer, and requires ghostscript to be installed and in your PATH
 ## this is a wrapper for a bash command, but its handy since it can be inserted into an R script
+### For AutoReportLite: it may be necessary to run this script/function on the PDF's you plan to include in the document
+### before compiling the document. Also make sure that your LaTeX/pdflatex install is set to embed fonts by default (see notes)
 
 # ~~~~~ GET SCRIPT ARGS ~~~~~~~ #
 args <- commandArgs(TRUE); cat("Script args are:\n"); args
