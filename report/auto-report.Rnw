@@ -36,6 +36,21 @@ sampleDirs<-grep(x = list.dirs(path = pipelineDir,full.names = TRUE,recursive = 
 # dir(pipelineDir,pattern = "[^report]")[file.info(dir(pipelineDir,pattern = "[^report]"))$isdir]
 SampleSheet_file<-"/ifs/home/kellys04/AutoReportLite/sample-sheet.tsv"
 
+# for future work development: here is a function to embed fonts in PDF's, 
+# get this working so that it can be run on all of the PDF's that are imported
+# embed the fonts # https://github.com/stevekm/LaTeX_docs/blob/master/code/embed_fonts_PDF.R
+embedPDFfonts<-function(x){
+  # get the input file
+  pdf_in<-x; print(paste0("Input file is: ", pdf_in))
+  # set an output filename
+  pdf_out<-paste0(pdf_in,"_embedfonts.pdf"); print(paste0("Output file is: ",pdf_out))
+  # run ghostscript to embed the fonts
+  system(command = paste0("gs -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dCompressFonts=true -dSubsetFonts=true -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=",pdf_out,' -c ".setpdfwrite <</NeverEmbed [ ]>> setdistillerparams" -f ',pdf_in))
+}
+
+# embedPDFfonts(pdf_input_file)
+# # would need to copy input PDF's to a new outdir for this to work
+
 @
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
