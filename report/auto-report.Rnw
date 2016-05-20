@@ -3,7 +3,8 @@
 % AutoReportLite analysis pipeline & reporting template
 % by Stephen Kelly
 % April 29, 2016
-%
+% https://github.com/stevekm/AutoReportLite
+% 
 % ~~~~~~~~~~~~~~~~~~~~~~~~
 \documentclass[8pt]{beamer} % start LaTeX document
 % set up parameters in R for use in the document
@@ -155,7 +156,7 @@ for(i in seq_along(sampleDirs)){
     cat("\\subsubsection{", latexTranslate(tmpFigureID), "}\n", sep="")
     
     # begin a new beamer frame
-    cat("\\begin{frame}{", latexTranslate(tmpFigureID), " }\n", sep="")
+    cat("\\begin{frame}{",latexTranslate(tmpSampleID),latexTranslate(" - "), latexTranslate(tmpFigureID), " }\n", sep="")
     
     # write the full file path
     cat("\\scriptsize{", latexTranslate(paste0(tmpSampleDir,"/",tmpPDF)), "}\n", sep="") 

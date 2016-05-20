@@ -24,7 +24,8 @@ fi
 module unload r
 module load r/3.2.3 
 
-# get the script arguments
+# ~~~~~~ script args ~~~~~~ #
+# get the script arguments here
 OUTDIR="$1" # outdir
 FASTQ_R1="$2" # Read 1 input file
 FASTQ_R2="$3" # Read 2 file
@@ -59,8 +60,10 @@ cat "$0" >> $LOG_FILE
 
 
 # ~~~~~~ # ~~~~~~ # ~~~~~~ run commands ~~~~~~ # ~~~~~~ # ~~~~~~ # ~~~~~~ 
-# make some sample plots, from here: http://www.r-bloggers.com/normal-distribution-functions/
 
+# place your analysis commands to run on each sample here
+
+# make some sample plots, from here: http://www.r-bloggers.com/normal-distribution-functions/
 (
 Rscript --slave --no-save --no-restore - "${SAMPLEID}" <<EOFB
   ## R code
