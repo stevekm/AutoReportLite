@@ -97,7 +97,7 @@ embedPDFfonts<-function(x){
 %%%%%%%%%%
 \begin{document}
 % Create the Title page
-\title[\Sexpr{Project_ID_short}]{\Sexpr{Project_ID} \\ Quality Metrics}
+\title[\Sexpr{Project_ID_short}]{\Sexpr{Project_ID}}
 \author{\Sexpr{Report_author}}
 \institute{\normalsize Dr. Aristotelis Tsirigos \\ PI: \Sexpr{PI_name} \\ Genome Technology Center, \\ NYU Langone Medical Center, New York, NY 10016}
 \date{\texttt{\Sexpr{Report_author_email}} \\ \today}
