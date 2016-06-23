@@ -149,15 +149,24 @@ for(i in seq_along(sampleDirs)){
   
   
   # PRINT THE STATS
-  # # get the stats file
+  # # get the stats file: plain text version:
   tmpAlignStatsFile<-dir(tmpSampleDir,pattern = "*stats.txt",full.names = TRUE)
-  # read in the file
+  # TSV version:
+  # tmpAlignStatsFile<-dir(tmpSampleDir,pattern = "*.tsv",full.names = TRUE)
+  
+  # read in the file - plain text version:
   tmpAlignStats<-scan(file =tmpAlignStatsFile,character(0), sep = "\n")
-  # print it in a new frame
+  # TSV version:
+  # tmpAlignStats<-read.table(tmpAlignStatsFile,header = TRUE,sep = "\t",stringsAsFactors = FALSE,check.names = FALSE)
+  
+  # print it in a new beamer slide frame
   cat("\\subsubsection{", latexTranslate("Stats"), "}\n", sep="")
   cat("\\begin{frame}{", latexTranslate("Stats"), " }\n", sep="")
   cat("\\small{",sep = "\n")
-  cat(latexTranslate(tmpAlignStats),sep = "\n\n")    
+  # plain text version:
+  cat(latexTranslate(tmpAlignStats),sep = "\n\n")
+  # TSV version:
+  # print(xtable(x = tmpAlignStats),size="\\footnotesize",scalebox = 1)
   cat("}\n",sep = "\n")
   cat("\\end{frame}\n\n")
   
