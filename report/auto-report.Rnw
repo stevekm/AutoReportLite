@@ -53,6 +53,22 @@ embedPDFfonts<-function(x){
 
 @
 
+<<run_pipeline,engine='bash',echo=FALSE,include=FALSE,eval=FALSE>>=
+# you can also run the analysis script from a code chunk in the document, if it is setup to support that
+# dont embed because if it requires things outside the scope of this doc
+
+# script path:
+tmp_script="/ifs/home/kellys04/AutoReportLite/code/analysis_pipeline.sh"
+
+# make sure its executable
+chmod +x $tmp_script
+
+# run the script:
+$tmp_script
+
+@
+
+
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % LaTeX settings start here:
 \listfiles % get versions of files used for document compliaton, written at the end of the .log file for the report compilation!
