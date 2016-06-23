@@ -33,7 +33,10 @@ pipelineDir<-paste0(ProjDir,"/analysis_pipeline")
 # get the sample subdirs
 # # don't include dirs with the name "report"
 sampleDirs<-grep(x = list.dirs(path = pipelineDir,full.names = TRUE,recursive = FALSE),pattern = "report",value = TRUE,invert = TRUE)
-# dir(pipelineDir,pattern = "[^report]")[file.info(dir(pipelineDir,pattern = "[^report]"))$isdir]
+# another way to exclude dirs: dir(pipelineDir,pattern = "[^report]")[file.info(dir(pipelineDir,pattern = "[^report]"))$isdir]
+# optionally, don't exclude any items:
+# sampleDirs<-list.dirs(path = pipelineDir,full.names = TRUE,recursive = FALSE)
+
 SampleSheet_file<-"/ifs/home/kellys04/AutoReportLite/sample-sheet.tsv"
 
 # for future work development: here is a function to embed fonts in PDF's, 
