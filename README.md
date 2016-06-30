@@ -52,3 +52,4 @@ $ pdflatex auto-report.tex && pdflatex auto-report.tex && pdflatex auto-report.t
 - Set up your pipeline script to work on one sample, and output all of that sample's results in its corresponding pipeline subdir
 - If not using `qsub` for script submission then pipe the stdout and stderr from the pipeline script to log files
 - If not using `qsub` then run the pipeline script in a `for` loop from the workflow.Rmd
+- You can easily embed the code for your analysis pipeline directly into the report RNW file; I omit this here since my pipelines often require resources unavailable in this context, and you may run into problems with `qsub` job output dependencies and background processes.
