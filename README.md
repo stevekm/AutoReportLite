@@ -1,6 +1,8 @@
 ## AutoReportLite
 Automatic analysis pipline &amp; reporting template, using bash, R, and LaTeX. 
 
+### Analysis Pipeline Setup
+
 #### Step 1. 
 Create sample sheet to describe samples for analysis and other relevant information per sample (sample-sheet.tsv)
 
@@ -10,8 +12,38 @@ Setup analysis pipeline script using items from sample sheet (code/analysis_pipe
 #### Step 3.
 Parse the sample sheet to create subdirectories per sample and pass items to the script for analysis (workflow.Rmd)
 
+### Report Compilation
+
 #### Step 4.
-Adjust report file to set project information, file paths, figures, as needed for inclusion in the report (report/auto-report.Rnw). Compile the report with knitr in R (.Rnw -> .tex) and pdflatex in the terminal (.tex -> .pdf)
+Adjust report file to set project information, file paths, figures, as needed for inclusion in the report (report/auto-report.Rnw). 
+
+#### Step 5.
+Compile the RNW file with knitr:
+
+```
+$ # in terminal, change to report dir and start R
+$ cd report
+$ R
+> # if knitr is not installed, install it:
+> # install.packages("knitr")
+> # load knitr
+> library("knitr")
+> # 'knit' the file
+> knit("auto-report.Rnw")
+...
+output file: auto-report.tex
+
+[1] "auto-report.tex"
+> # quit R and return to the terminal
+> quit()
+```
+#### Step 6.
+Compile the resulting TEX file with `pdflatex` 2 or 3 times
+
+```
+$ pdflatex auto-report.tex && pdflatex auto-report.tex && pdflatex auto-report.tex
+```
+
 
 
 #### TIPS:
