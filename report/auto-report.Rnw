@@ -28,7 +28,10 @@ Report_author<-latexTranslate("Stephen Kelly")
 PI_name<-latexTranslate("Dr. Smith")
 Report_author_email<-latexTranslate("stephen.kelly@nyumc.org")
 
-ProjDir<-"/ifs/home/kellys04/AutoReportLite"
+# set the proj dir one level up, get the absolute path
+ProjDir <- system("readlink -f ../",intern=TRUE)
+# ProjDir<-"/ifs/home/kellys04/AutoReportLite"
+
 pipelineDir<-paste0(ProjDir,"/analysis_pipeline")
 # get the sample subdirs
 # # don't include dirs with the name "report"
@@ -37,7 +40,8 @@ sampleDirs<-grep(x = list.dirs(path = pipelineDir,full.names = TRUE,recursive = 
 # optionally, don't exclude any items:
 # sampleDirs<-list.dirs(path = pipelineDir,full.names = TRUE,recursive = FALSE)
 
-SampleSheet_file<-"/ifs/home/kellys04/AutoReportLite/sample-sheet.tsv"
+SampleSheet_file<-paste0(ProjDir,"/sample-sheet.tsv")
+# SampleSheet_file<-"../sample-sheet.tsv"
 
 # for future work development: here is a function to embed fonts in PDF's, 
 # get this working so that it can be run on all of the PDF's that are imported
