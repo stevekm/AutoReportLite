@@ -33,10 +33,44 @@ pipelineDir<-paste0(ProjDir,"/analysis_pipeline")
 # get the sample subdirs
 # # don't include dirs with the name "report"
 sampleDirs<-grep(x = list.dirs(path = pipelineDir,full.names = TRUE,recursive = FALSE),pattern = "report",value = TRUE,invert = TRUE)
-# dir(pipelineDir,pattern = "[^report]")[file.info(dir(pipelineDir,pattern = "[^report]"))$isdir]
+# another way to exclude dirs: dir(pipelineDir,pattern = "[^report]")[file.info(dir(pipelineDir,pattern = "[^report]"))$isdir]
+# optionally, don't exclude any items:
+# sampleDirs<-list.dirs(path = pipelineDir,full.names = TRUE,recursive = FALSE)
+
 SampleSheet_file<-"/ifs/home/kellys04/AutoReportLite/sample-sheet.tsv"
 
+# for future work development: here is a function to embed fonts in PDF's, 
+# get this working so that it can be run on all of the PDF's that are imported
+# embed the fonts # https://github.com/stevekm/LaTeX_docs/blob/master/code/embed_fonts_PDF.R
+embedPDFfonts<-function(x){
+  # get the input file
+  pdf_in<-x; print(paste0("Input file is: ", pdf_in))
+  # set an output filename
+  pdf_out<-paste0(pdf_in,"_embedfonts.pdf"); print(paste0("Output file is: ",pdf_out))
+  # run ghostscript to embed the fonts
+  system(command = paste0("gs -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dCompressFonts=true -dSubsetFonts=true -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=",pdf_out,' -c ".setpdfwrite <</NeverEmbed [ ]>> setdistillerparams" -f ',pdf_in))
+}
+
+# embedPDFfonts(pdf_input_file)
+# # would need to copy input PDF's to a new outdir for this to work
+
 @
+
+<<run_pipeline,engine='bash',echo=FALSE,include=FALSE,eval=FALSE>>=
+# you can also run the analysis script from a code chunk in the document, if it is setup to support that
+# dont embed because if it requires things outside the scope of this doc
+
+# script path:
+tmp_script="/ifs/home/kellys04/AutoReportLite/code/analysis_pipeline.sh"
+
+# make sure its executable
+chmod +x $tmp_script
+
+# run the script:
+$tmp_script
+
+@
+
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 % LaTeX settings start here:
@@ -82,7 +116,7 @@ SampleSheet_file<-"/ifs/home/kellys04/AutoReportLite/sample-sheet.tsv"
 %%%%%%%%%%
 \begin{document}
 % Create the Title page
-\title[\Sexpr{Project_ID_short}]{\Sexpr{Project_ID} \\ Quality Metrics}
+\title[\Sexpr{Project_ID_short}]{\Sexpr{Project_ID}}
 \author{\Sexpr{Report_author}}
 \institute{\normalsize Dr. Aristotelis Tsirigos \\ PI: \Sexpr{PI_name} \\ Genome Technology Center, \\ NYU Langone Medical Center, New York, NY 10016}
 \date{\texttt{\Sexpr{Report_author_email}} \\ \today}
@@ -134,15 +168,24 @@ for(i in seq_along(sampleDirs)){
   
   
   # PRINT THE STATS
-  # # get the stats file
+  # # get the stats file: plain text version:
   tmpAlignStatsFile<-dir(tmpSampleDir,pattern = "*stats.txt",full.names = TRUE)
-  # read in the file
+  # TSV version:
+  # tmpAlignStatsFile<-dir(tmpSampleDir,pattern = "*.tsv",full.names = TRUE)
+  
+  # read in the file - plain text version:
   tmpAlignStats<-scan(file =tmpAlignStatsFile,character(0), sep = "\n")
-  # print it in a new frame
+  # TSV version:
+  # tmpAlignStats<-read.table(tmpAlignStatsFile,header = TRUE,sep = "\t",stringsAsFactors = FALSE,check.names = FALSE)
+  
+  # print it in a new beamer slide frame
   cat("\\subsubsection{", latexTranslate("Stats"), "}\n", sep="")
   cat("\\begin{frame}{", latexTranslate("Stats"), " }\n", sep="")
   cat("\\small{",sep = "\n")
-  cat(latexTranslate(tmpAlignStats),sep = "\n\n")    
+  # plain text version:
+  cat(latexTranslate(tmpAlignStats),sep = "\n\n")
+  # TSV version:
+  # print(xtable(x = tmpAlignStats),size="\\footnotesize",scalebox = 1)
   cat("}\n",sep = "\n")
   cat("\\end{frame}\n\n")
   
