@@ -9,18 +9,28 @@ output: html_document
 # I usually just copy/paste these commands into the terminal (bash shell)
 # alternatively you could use something like Rstudio to compile this Rmd document
 # or just save these steps as a bash script; pick which ever is easiest for you!
+
+# path to the analysis project directory
 ProjDir="$HOME/AutoReportLite"
+
+# path to dir for pipeline outputs
 testOutdir="$ProjDir/analysis_pipeline"
+
+# path to sample sheet
 samplesheet="$ProjDir/sample-sheet.tsv"
+
+# path to pipeline script
 tmp_script="$ProjDir/code/analysis_pipeline.sh"
+
+# make sure the script is executable; make the outdir; switch to the project dir
 chmod +x "$tmp_script"
 mkdir -p "$testOutdir"
 cd "$ProjDir"
 
-# read in from sample sheet
+# read in lines from sample sheet, skipping the header
 tail -n +2 $samplesheet | while read i; do
   # echo "$i"
-  # make sure there is an entry on that line !
+  # make sure there is an entry on the line
   if [[ ! -z "$i" ]]; then
     
     # get sample ID
@@ -55,28 +65,20 @@ tail -n +2 $samplesheet | while read i; do
     tmp_fastq2=$(echo "$i" | cut -f5)
     echo "tmp_fastq2 is $tmp_fastq2"
     
-    ## USAGE: analysis_pipeline.sh /path/to/outdir /path/to/input_file_R1.fastq.gz /path/to/input_file_R2.fastq.gz <sampleID> <ref_genome> /path/to/ref_genome  
-    # submit job to qsub
+    
+    # submit job to be run on the cluster
     qsub -wd $tmp_outdir -o :${tmp_logdir}/ -e :${tmp_logdir}/ -pe threaded 6-16  -l mem_free=10G -l mem_token=10G "$tmp_script" "$tmp_outdir" "$tmp_fastq1" "$tmp_fastq2" "$tmp_sample" "$tmp_genome" "$tmp_genome_path"
+    # args: 
+    # # -wd : job's working dir
+    # # -o : stdout log directory
+    # # -e : stderr log directory
+    # # -pe threaded <integer> : CPU threads allocated
+    # # -l mem_free=<int>G : only run job on node with <int> Gigabytes free memory
+    # # -l mem_token=<int>G : reserve <int> Gigabytes of memory for job
+    # # -N <name> : name for the job
     
-# ~~~~ IF PROCESSING EACH READ SINGLY USE THIS TOO ~~~~~~ #
-    #     # process second read
-#     tmp_sample=$(echo "$i" | cut -f1)
-#     tmp_sample="${tmp_sample}_R2"
-#     
-#     tmp_outdir="${testOutdir}/${tmp_sample}"
-#     mkdir -p "$tmp_outdir"
-#     echo "tmp_outdir is $tmp_outdir"
-#     
-#     
-#     tmp_logdir="${tmp_outdir}/logs"
-#     mkdir -p "$tmp_logdir"
-#     
-#     tmp_fastq2=$(echo "$i" | cut -f5)
-#     echo "tmp_fastq2 is $tmp_fastq2"
-#     
-#     qsub -wd $tmp_outdir -o :${tmp_logdir}/ -e :${tmp_logdir}/ -pe threaded 6-16  -l mem_free=10G -l mem_token=10G "$tmp_script" "$tmp_outdir" "$tmp_fastq2" "$tmp_sample" "$tmp_genome" "$tmp_genome_path"
     
+
     echo -e "\n\n"
 
   fi
