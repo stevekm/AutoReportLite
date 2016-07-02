@@ -38,7 +38,7 @@ output file: auto-report.tex
 > quit()
 ```
 #### Step 6.
-Compile the resulting TEX file with `pdflatex` 2 or 3 times (yes this is necessary!)
+Compile the resulting TEX file with `pdflatex` 2 or 3 times for full compilation.
 
 ```
 $ pdflatex auto-report.tex && pdflatex auto-report.tex && pdflatex auto-report.tex
