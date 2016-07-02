@@ -47,7 +47,7 @@ $ pdflatex auto-report.tex && pdflatex auto-report.tex && pdflatex auto-report.t
 
 
 #### TIPS:
-- Use the workflow.Rmd to set up your pipeline's directory structure
+- Use the `workflow.Rmd` to set up your pipeline's directory structure
 - Create a parent directory for the pipeline output (e.g. `analysis_pipeline`), with a subdirectory for each sample to be processed (`Sample1`,`Sample2`,etc.); the name of the subdirectory should correspond to the name or ID for the sample
 - Set up your pipeline script to work on one sample, and output all of that sample's results in its corresponding pipeline subdir
 - If not using `qsub` for script submission then pipe the stdout and stderr from the pipeline script to log files
