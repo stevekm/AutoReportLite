@@ -48,7 +48,36 @@ $ pdflatex auto-report.tex && pdflatex auto-report.tex && pdflatex auto-report.t
 
 #### TIPS:
 - Use the `workflow.Rmd` to set up your pipeline's directory structure
-- Create a parent directory for the pipeline output (e.g. `analysis_pipeline`), with a subdirectory for each sample to be processed (`Sample1`,`Sample2`,etc.); the name of the subdirectory should correspond to the name or ID for the sample
+- Create a parent directory for the pipeline output (e.g. `analysis_pipeline`), with a subdirectory for each sample to be processed (`Sample1`,`Sample2`,etc.); the name of the subdirectory should correspond to the name or ID for the sample. See this example:
+
+```
+steve@macbook:~/AutoReportLite$ tree analysis_pipeline/
+analysis_pipeline/
+|-- Sample1
+|   |-- R_stats.txt
+|   |-- Sample1.distribution_histogram.pdf
+|   |-- Sample1.random_distribution.pdf
+|   `-- logs
+|       |-- analysis_pipeline.sh.e4783069
+|       |-- analysis_pipeline.sh.o4783069
+|       |-- analysis_pipeline.sh.pe4783069
+|       |-- analysis_pipeline.sh.po4783069
+|       `-- scriptlog.analysis_pipeline.sh.20160429t173756.highmem001.61335.15519
+|-- Sample2
+|   |-- R_stats.txt
+|   |-- Sample2.distribution_histogram.pdf
+|   |-- Sample2.random_distribution.pdf
+|   `-- logs
+|       |-- analysis_pipeline.sh.e4783070
+|       |-- analysis_pipeline.sh.o4783070
+|       |-- analysis_pipeline.sh.pe4783070
+|       |-- analysis_pipeline.sh.po4783070
+|       `-- scriptlog.analysis_pipeline.sh.20160429t173756.highmem001.61390.15152
+
+...
+
+```
+
 - Set up your pipeline script to work on one sample, and output all of that sample's results in its corresponding pipeline subdir
 - If not using `qsub` for script submission then pipe the stdout and stderr from the pipeline script to log files
 - If not using `qsub` then run the pipeline script in a `for` loop from the workflow.Rmd
