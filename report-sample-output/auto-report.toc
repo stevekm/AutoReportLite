@@ -1,3 +1,23 @@
-\beamer@endinputifotherversion {3.36pt}
+\beamer@endinputifotherversion {3.06pt}
 \beamer@sectionintoc {1}{Sample Sheet}{2}{0}{1}
-\beamer@sectionintoc {2}{Session Information}{2}{0}{2}
+\beamer@sectionintoc {2}{Sample1}{3}{0}{2}
+\beamer@subsubsectionintoc {0}{2}{0}{1}{3}{2}{Stats}
+\beamer@subsubsectionintoc {0}{2}{0}{2}{4}{2}{distribution\_histogram.pdf}
+\beamer@subsubsectionintoc {0}{2}{0}{3}{5}{2}{random\_distribution.pdf}
+\beamer@sectionintoc {3}{Sample2}{6}{0}{3}
+\beamer@subsubsectionintoc {0}{3}{0}{4}{6}{3}{Stats}
+\beamer@subsubsectionintoc {0}{3}{0}{5}{7}{3}{distribution\_histogram.pdf}
+\beamer@subsubsectionintoc {0}{3}{0}{6}{8}{3}{random\_distribution.pdf}
+\beamer@sectionintoc {4}{Sample3}{9}{0}{4}
+\beamer@subsubsectionintoc {0}{4}{0}{7}{9}{4}{Stats}
+\beamer@subsubsectionintoc {0}{4}{0}{8}{10}{4}{distribution\_histogram.pdf}
+\beamer@subsubsectionintoc {0}{4}{0}{9}{11}{4}{random\_distribution.pdf}
+\beamer@sectionintoc {5}{Sample4}{12}{0}{5}
+\beamer@subsubsectionintoc {0}{5}{0}{10}{12}{5}{Stats}
+\beamer@subsubsectionintoc {0}{5}{0}{11}{13}{5}{distribution\_histogram.pdf}
+\beamer@subsubsectionintoc {0}{5}{0}{12}{14}{5}{random\_distribution.pdf}
+\beamer@sectionintoc {6}{Sample5}{15}{0}{6}
+\beamer@subsubsectionintoc {0}{6}{0}{13}{15}{6}{Stats}
+\beamer@subsubsectionintoc {0}{6}{0}{14}{16}{6}{distribution\_histogram.pdf}
+\beamer@subsubsectionintoc {0}{6}{0}{15}{17}{6}{random\_distribution.pdf}
+\beamer@sectionintoc {7}{Session Information}{18}{0}{7}
