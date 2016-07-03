@@ -3,7 +3,8 @@
 % AutoReportLite analysis pipeline & reporting template
 % by Stephen Kelly
 % April 29, 2016
-%
+% https://github.com/stevekm/AutoReportLite
+% 
 % ~~~~~~~~~~~~~~~~~~~~~~~~
 \documentclass[8pt]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
 %% maxwidth is the original width if it is less than linewidth
@@ -58,6 +59,14 @@
 % set up parameters in R for use in the document
 
 %
+\begin{knitrout}\footnotesize
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+
+
+{\ttfamily\noindent\color{warningcolor}{\#\# Warning: running command 'readlink -f ../' had status 1}}\end{kframe}
+\end{knitrout}
+
+
 
 
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -105,7 +114,7 @@
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 % Create the Title page
-\title[Sample Statistical Analysis]{SmithLab\_Taylor\_2016-12-31 Sample Statistical Analysis \\ Quality Metrics}
+\title[Sample Statistical Analysis]{SmithLab\_Taylor\_2016-12-31 Sample Statistical Analysis}
 \author{Stephen Kelly}
 \institute{\normalsize Dr. Aristotelis Tsirigos \\ PI: Dr. Smith \\ Genome Technology Center, \\ NYU Langone Medical Center, New York, NY 10016}
 \date{\texttt{stephen.kelly@nyumc.org} \\ \today}
@@ -114,206 +123,17 @@
 
 % REPORT STARTS HERE!
 %
-\section{Sample Sheet}
-\begin{frame}{ Analysis Sample Sheet}
-% latex table generated in R 3.2.3 by xtable 1.8-2 package
-% Wed May  4 17:16:32 2016
-\begin{table}[ht]
-\centering
-\begingroup\footnotesize
-\scalebox{1.3}{
-\begin{tabular}{rlll}
-  \hline
- & SampleID & Control & genome \\ 
-  \hline
-1 & Sample1 & Sample2 & mm10 \\ 
-  2 & Sample2 &  & mm10 \\ 
-  3 & Sample3 & Sample4 & mm10 \\ 
-  4 & Sample4 &  & mm10 \\ 
-  5 & Sample5 &  & mm10 \\ 
-   \hline
-\end{tabular}
-}
-\endgroup
-\end{table}
-\end{frame}
+\begin{kframe}
 
 
+{\ttfamily\noindent\color{warningcolor}{\#\# Warning in file(file, "{}rt"{}): cannot open file '/sample-sheet.tsv': No such file or directory}}
 
-\section{Sample1}
-\subsubsection{Stats}
-\begin{frame}{Stats }
-\small{
-Sample1 
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in file(file, "{}rt"{}): cannot open the connection}}
 
-Some sample stats
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in split(PipelineSampleSheet, (seq\_len(nrow(PipelineSampleSheet)) - : object 'PipelineSampleSheet' not found}}\end{kframe}\section{Sample Sheet}
+\begin{kframe}
 
-[1] -4.00 -3.99 -3.98 -3.97 -3.96 -3.95
-
-[1] 0.0001338302 0.0001392850 0.0001449476 0.0001508253 0.0001569256
-
-[6] 0.0001632564
-
-[1] 3.167124e-05 3.303665e-05 3.445763e-05 3.593632e-05 3.747488e-05
-
-[6] 3.907560e-05
-
-[1]  1.2582925  0.6447519  0.4633460  0.7703058 -0.2263347 -0.3515479
-}
-
-\end{frame}
-
-\subsubsection{distribution\_histogram.pdf}
-\begin{frame}{distribution\_histogram.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_pipeline/Sample1/Sample1.distribution\_histogram.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_pipeline/Sample1/Sample1.distribution_histogram.pdf}
-\end{frame}
-
-\subsubsection{random\_distribution.pdf}
-\begin{frame}{random\_distribution.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_pipeline/Sample1/Sample1.random\_distribution.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_pipeline/Sample1/Sample1.random_distribution.pdf}
-\end{frame}
-
-\section{Sample2}
-\subsubsection{Stats}
-\begin{frame}{Stats }
-\small{
-Sample2 
-
-Some sample stats
-
-[1] -4.00 -3.99 -3.98 -3.97 -3.96 -3.95
-
-[1] 0.0001338302 0.0001392850 0.0001449476 0.0001508253 0.0001569256
-
-[6] 0.0001632564
-
-[1] 3.167124e-05 3.303665e-05 3.445763e-05 3.593632e-05 3.747488e-05
-
-[6] 3.907560e-05
-
-[1]  1.2582925  0.6447519  0.4633460  0.7703058 -0.2263347 -0.3515479
-}
-
-\end{frame}
-
-\subsubsection{distribution\_histogram.pdf}
-\begin{frame}{distribution\_histogram.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_pipeline/Sample2/Sample2.distribution\_histogram.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_pipeline/Sample2/Sample2.distribution_histogram.pdf}
-\end{frame}
-
-\subsubsection{random\_distribution.pdf}
-\begin{frame}{random\_distribution.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_pipeline/Sample2/Sample2.random\_distribution.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_pipeline/Sample2/Sample2.random_distribution.pdf}
-\end{frame}
-
-\section{Sample3}
-\subsubsection{Stats}
-\begin{frame}{Stats }
-\small{
-Sample3 
-
-Some sample stats
-
-[1] -4.00 -3.99 -3.98 -3.97 -3.96 -3.95
-
-[1] 0.0001338302 0.0001392850 0.0001449476 0.0001508253 0.0001569256
-
-[6] 0.0001632564
-
-[1] 3.167124e-05 3.303665e-05 3.445763e-05 3.593632e-05 3.747488e-05
-
-[6] 3.907560e-05
-
-[1]  1.2582925  0.6447519  0.4633460  0.7703058 -0.2263347 -0.3515479
-}
-
-\end{frame}
-
-\subsubsection{distribution\_histogram.pdf}
-\begin{frame}{distribution\_histogram.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_pipeline/Sample3/Sample3.distribution\_histogram.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_pipeline/Sample3/Sample3.distribution_histogram.pdf}
-\end{frame}
-
-\subsubsection{random\_distribution.pdf}
-\begin{frame}{random\_distribution.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_pipeline/Sample3/Sample3.random\_distribution.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_pipeline/Sample3/Sample3.random_distribution.pdf}
-\end{frame}
-
-\section{Sample4}
-\subsubsection{Stats}
-\begin{frame}{Stats }
-\small{
-Sample4 
-
-Some sample stats
-
-[1] -4.00 -3.99 -3.98 -3.97 -3.96 -3.95
-
-[1] 0.0001338302 0.0001392850 0.0001449476 0.0001508253 0.0001569256
-
-[6] 0.0001632564
-
-[1] 3.167124e-05 3.303665e-05 3.445763e-05 3.593632e-05 3.747488e-05
-
-[6] 3.907560e-05
-
-[1]  1.2582925  0.6447519  0.4633460  0.7703058 -0.2263347 -0.3515479
-}
-
-\end{frame}
-
-\subsubsection{distribution\_histogram.pdf}
-\begin{frame}{distribution\_histogram.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_pipeline/Sample4/Sample4.distribution\_histogram.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_pipeline/Sample4/Sample4.distribution_histogram.pdf}
-\end{frame}
-
-\subsubsection{random\_distribution.pdf}
-\begin{frame}{random\_distribution.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_pipeline/Sample4/Sample4.random\_distribution.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_pipeline/Sample4/Sample4.random_distribution.pdf}
-\end{frame}
-
-\section{Sample5}
-\subsubsection{Stats}
-\begin{frame}{Stats }
-\small{
-Sample5 
-
-Some sample stats
-
-[1] -4.00 -3.99 -3.98 -3.97 -3.96 -3.95
-
-[1] 0.0001338302 0.0001392850 0.0001449476 0.0001508253 0.0001569256
-
-[6] 0.0001632564
-
-[1] 3.167124e-05 3.303665e-05 3.445763e-05 3.593632e-05 3.747488e-05
-
-[6] 3.907560e-05
-
-[1]  1.2582925  0.6447519  0.4633460  0.7703058 -0.2263347 -0.3515479
-}
-
-\end{frame}
-
-\subsubsection{distribution\_histogram.pdf}
-\begin{frame}{distribution\_histogram.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_pipeline/Sample5/Sample5.distribution\_histogram.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_pipeline/Sample5/Sample5.distribution_histogram.pdf}
-\end{frame}
-
-\subsubsection{random\_distribution.pdf}
-\begin{frame}{random\_distribution.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_pipeline/Sample5/Sample5.random\_distribution.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_pipeline/Sample5/Sample5.random_distribution.pdf}
-\end{frame}
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in eval(expr, envir, enclos): object 'tmpdf' not found}}\end{kframe}
 
 
 
@@ -321,47 +141,43 @@ Some sample stats
 \section{Session Information}
 % \begin{frame}{System and Session Information}
 % \begin{frame}[fragile]{System and Session Information}
-\small{This report was prepared using the AutoReportLite template, available at \url{https://github.com/stevekm/AutoReportLite}}
+% \small{This report was prepared using the AutoReportLite template, available at \url{https://github.com/stevekm/AutoReportLite}}
 \begin{knitrout}\footnotesize
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlkwd{system}\hlstd{(}\hlstr{'uname -srv'}\hlstd{,}\hlkwc{intern}\hlstd{=T)}
 \end{alltt}
 \begin{verbatim}
-## [1] "Linux 2.6.32-573.18.1.el6.x86_64 #1 SMP Tue Feb 9 22:46:17 UTC 2016"
+## [1] "Darwin 15.5.0 Darwin Kernel Version 15.5.0: Tue Apr 19 18:36:36 PDT 2016; root:xnu-3248.50.21~8/RELEASE_X86_64"
 \end{verbatim}
 \begin{alltt}
 \hlkwd{sessionInfo}\hlstd{()}
 \end{alltt}
 \begin{verbatim}
-## R version 3.2.3 (2015-12-10)
-## Platform: x86_64-redhat-linux-gnu (64-bit)
-## Running under: CentOS release 6.7 (Final)
+## R version 3.3.0 (2016-05-03)
+## Platform: x86_64-apple-darwin13.4.0 (64-bit)
+## Running under: OS X 10.11.5 (El Capitan)
 ## 
 ## locale:
-##  [1] LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              
-##  [3] LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    
-##  [5] LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   
-##  [7] LC_PAPER=en_US.UTF-8       LC_NAME=C                 
-##  [9] LC_ADDRESS=C               LC_TELEPHONE=C            
-## [11] LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       
+## [1] C
 ## 
 ## attached base packages:
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] xtable_1.8-2    Hmisc_3.17-1    ggplot2_2.0.0   Formula_1.2-1  
-## [5] survival_2.39-2 lattice_0.20-33 knitr_1.12.3   
+## [1] xtable_1.8-2    Hmisc_3.17-4    ggplot2_2.1.0   Formula_1.2-1  
+## [5] survival_2.39-4 lattice_0.20-33 knitr_1.13     
 ## 
 ## loaded via a namespace (and not attached):
-##  [1] Rcpp_0.12.3         cluster_2.0.4       magrittr_1.5       
-##  [4] splines_3.2.3       munsell_0.4.2       colorspace_1.2-6   
-##  [7] stringr_1.0.0       highr_0.5.1         plyr_1.8.3         
-## [10] tools_3.2.3         nnet_7.3-12         grid_3.2.3         
-## [13] gtable_0.1.2        latticeExtra_0.6-26 Matrix_1.2-5       
-## [16] gridExtra_2.0.0     RColorBrewer_1.1-2  formatR_1.3        
-## [19] acepack_1.3-3.3     rpart_4.1-10        evaluate_0.8.3     
-## [22] stringi_1.0-1       scales_0.3.0        foreign_0.8-66
+##  [1] Rcpp_0.12.5         cluster_2.0.4       magrittr_1.5       
+##  [4] splines_3.3.0       munsell_0.4.3       colorspace_1.2-6   
+##  [7] stringr_1.0.0       highr_0.6           plyr_1.8.4         
+## [10] tools_3.3.0         nnet_7.3-12         grid_3.3.0         
+## [13] data.table_1.9.6    gtable_0.2.0        latticeExtra_0.6-28
+## [16] Matrix_1.2-6        gridExtra_2.2.1     RColorBrewer_1.1-2 
+## [19] formatR_1.4         acepack_1.3-3.3     rpart_4.1-10       
+## [22] evaluate_0.9        stringi_1.1.1       scales_0.4.0       
+## [25] chron_2.3-47        foreign_0.8-66
 \end{verbatim}
 \begin{alltt}
 \hlkwd{save.image}\hlstd{(}\hlkwc{compress} \hlstd{=} \hlnum{TRUE}\hlstd{)}

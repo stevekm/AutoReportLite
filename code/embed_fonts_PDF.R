@@ -42,4 +42,6 @@ embedPDFfonts(pdf_input_file)
 # original bash command
 # gs -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dCompressFonts=true -dSubsetFonts=true -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=All_Samples_venn.pdf_embedfonts.pdf -c ".setpdfwrite <</NeverEmbed [ ]>> setdistillerparams" -f All_Samples_venn.pdf
 
+# get this working so that it can be run on all of the PDF's that are imported
+# # would need to copy input PDF's to a new outdir for this to work
 

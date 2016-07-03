@@ -8,54 +8,52 @@
 % ~~~~~~~~~~~~~~~~~~~~~~~~
 \documentclass[8pt]{beamer} % start LaTeX document
 % set up parameters in R for use in the document
-<<doc_setup, include=FALSE>>=
+<<setup, include=FALSE>>=
 # % always need this code chunk for RNW files compiled with knitr, never mess with it unless you are a wizard
 # this sets knitr options for the document
 opts_chunk$set(fig.path='figure/beamer-',fig.align='center',fig.show='hold',size='footnotesize')
 @
 %
 <<report_setup,echo=FALSE,engine='R',eval=TRUE>>=
-# load packages
+#
+# SET THESE FILE PATHS & ENTRIES MANUALLY !! 
+#
+
 suppressPackageStartupMessages(library("Hmisc")) # need for latexTranslate()
 suppressPackageStartupMessages(library(xtable)) # needed to print the sample sheet
 
-
-# ~~~~~~~~~~~~
-# NAMES AND LOCATIONS OF ITEMS FOR THE REPORT 
-
-# unique ID for the title slide
-Project_ID<-latexTranslate("SmithLab_Taylor_2016-12-31 Sample Statistical Analysis") 
-
-# short ID for the sidebar
-Project_ID_short<-latexTranslate("Sample Statistical Analysis") 
-
-# document author
+Project_ID_short<-latexTranslate("Sample Statistical Analysis") # for the sidebar
+Project_ID<-latexTranslate("SmithLab_Taylor_2016-12-31 Sample Statistical Analysis") # for the title slide
 Report_author<-latexTranslate("Stephen Kelly")
-
-# author's email address
+PI_name<-latexTranslate("Dr. Smith")
 Report_author_email<-latexTranslate("stephen.kelly@nyumc.org")
 
-# PI or other person to include in the title page
-PI_name<-latexTranslate("Dr. Smith")
-
-# the path to the project directory; one level up, get the absolute path
-ProjDir <- system("readlink -f ../",intern=TRUE)
-# you could also set it manually like this:
-# ProjDir<-"/ifs/home/kellys04/AutoReportLite"
-
-# the directory with the analysis output
-pipelineDir<-paste0(ProjDir,"/analysis_output")
-
-# get the subdirs from the output directory
+ProjDir<-"/ifs/home/kellys04/AutoReportLite"
+pipelineDir<-paste0(ProjDir,"/analysis_pipeline")
+# get the sample subdirs
 # # don't include dirs with the name "report"
 sampleDirs<-grep(x = list.dirs(path = pipelineDir,full.names = TRUE,recursive = FALSE),pattern = "report",value = TRUE,invert = TRUE)
-
 # another way to exclude dirs: dir(pipelineDir,pattern = "[^report]")[file.info(dir(pipelineDir,pattern = "[^report]"))$isdir]
 # optionally, don't exclude any items:
 # sampleDirs<-list.dirs(path = pipelineDir,full.names = TRUE,recursive = FALSE)
 
-# path to the sample sheet
-SampleSheet_file<-paste0(ProjDir,"/sample-sheet.tsv")
+SampleSheet_file<-"/ifs/home/kellys04/AutoReportLite/sample-sheet.tsv"
+
+# for future work development: here is a function to embed fonts in PDF's, 
+# get this working so that it can be run on all of the PDF's that are imported
+# embed the fonts # https://github.com/stevekm/LaTeX_docs/blob/master/code/embed_fonts_PDF.R
+embedPDFfonts<-function(x){
+  # get the input file
+  pdf_in<-x; print(paste0("Input file is: ", pdf_in))
+  # set an output filename
+  pdf_out<-paste0(pdf_in,"_embedfonts.pdf"); print(paste0("Output file is: ",pdf_out))
+  # run ghostscript to embed the fonts
+  system(command = paste0("gs -dCompatibilityLevel=1.4 -dPDFSETTINGS=/screen -dCompressFonts=true -dSubsetFonts=true -dNOPAUSE -dBATCH -sDEVICE=pdfwrite -sOutputFile=",pdf_out,' -c ".setpdfwrite <</NeverEmbed [ ]>> setdistillerparams" -f ',pdf_in))
+}
+
+# embedPDFfonts(pdf_input_file)
+# # would need to copy input PDF's to a new outdir for this to work
+
 @
 
 <<run_pipeline,engine='bash',echo=FALSE,include=FALSE,eval=FALSE>>=
@@ -63,8 +61,7 @@ SampleSheet_file<-paste0(ProjDir,"/sample-sheet.tsv")
 # dont embed because if it requires things outside the scope of this doc
 
 # script path:
-tmp_script="../code/analysis_pipeline.sh"
-# tmp_script="/ifs/home/kellys04/AutoReportLite/code/analysis_pipeline.sh"
+tmp_script="/ifs/home/kellys04/AutoReportLite/code/analysis_pipeline.sh"
 
 # make sure its executable
 chmod +x $tmp_script
