@@ -82,3 +82,12 @@ analysis_pipeline/
 - If not using `qsub` for script submission then pipe the stdout and stderr from the pipeline script to log files
 - If not using `qsub` then run the pipeline script in a `for` loop from the workflow.Rmd
 - You can easily embed the code for your analysis pipeline directly into the report RNW file; I omit this here since my pipelines often require resources unavailable in this context, and you may run into problems with `qsub` job output dependencies and background processes.
+
+
+---
+### Dependencies
+
+- R and the `knitr` package (I'm currently using R 3.3.0, but others may work)
+- LaTeX and pdflatex (I'm currently using `pdfTeX 3.14159265-2.6-1.40.16 (TeX Live 2015)`, but others may work )
+- bash (I'm currently using `GNU bash, version 4.1.2(1)-release (x86_64-redhat-linux-gnu)`, but others may work)
+- any software used by your specific pipelines
