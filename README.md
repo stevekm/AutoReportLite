@@ -88,6 +88,6 @@ analysis_pipeline/
 ### Dependencies
 
 - R and the `knitr` package (I'm currently using R 3.3.0, but others may work)
-- LaTeX and pdflatex (I'm currently using `pdfTeX 3.14159265-2.6-1.40.16 (TeX Live 2015)`, but others may work )
+- LaTeX and pdflatex (I'm currently using `pdfTeX 3.14159265-2.6-1.40.16 (TeX Live 2015)`, but others may work; I've also used this with `pdfTeX using libpoppler 3.141592-1.40.3-2.2 (Web2C 7.5.6)` (standard with CentOS 6), extra .sty files as needed are included with the report)
 - bash (I'm currently using `GNU bash, version 4.1.2(1)-release (x86_64-redhat-linux-gnu)`, but others may work)
 - any software used by your specific pipelines
