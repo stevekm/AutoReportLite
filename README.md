@@ -4,7 +4,13 @@ AutoReportLite is an automatic analysis pipline and reporting template, using ba
 ### Example Report Output
 ![screen shot 2016-07-07 at 5 51 25 pm](https://cloud.githubusercontent.com/assets/10505524/16671142/c2320dca-446b-11e6-965b-ead64d37082c.png)
 
-### Analysis Pipeline Setup
+### Installation
+To install AutoReportLite, simply clone this repository with the following terminal command:
+```
+git clone https://github.com/stevekm/AutoReportLite.git
+```
+
+### Setup
 
 #### Step 1. 
 Create sample sheet to describe samples for analysis and other relevant information per sample (`sample-sheet.tsv`)
@@ -90,7 +96,8 @@ analysis_pipeline/
 ---
 ### Dependencies
 
-- R and the `knitr` package (I'm currently using R 3.3.0, but others may work)
-- LaTeX and pdflatex (I'm currently using `pdfTeX 3.14159265-2.6-1.40.16 (TeX Live 2015)`, but others may work; I've also used this with `pdfTeX using libpoppler 3.141592-1.40.3-2.2 (Web2C 7.5.6)` (standard with CentOS 6), extra .sty files as needed are included with the report)
-- bash (I'm currently using `GNU bash, version 4.1.2(1)-release (x86_64-redhat-linux-gnu)`, but others may work; on OS X `GNU bash, version 3.2.57(1)-release (x86_64-apple-darwin15)` works but note that some commands such as `readlink` are not available, some alternatives may be found in the `coreutils` package availble in `homebrew` e.g. `greadlink`, etc.)
+- R programming language (developed under R version 3.3.0, but older versions will likely work as well)
+- `knitr` R package
+- LaTeX and pdflatex (developed under `pdfTeX 3.14159265-2.6-1.40.16 (TeX Live 2015)`, but others may work)
+- bash (developed under `GNU bash, version 4.1.2(1)-release (x86_64-redhat-linux-gnu)`, but others may work)
 - any software used by your specific pipelines
