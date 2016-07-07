@@ -1,5 +1,8 @@
 ## AutoReportLite
-Automatic analysis pipline &amp; reporting template, using bash, R, and LaTeX. 
+AutoReportLite is an automatic analysis pipline and reporting template, using bash, R, and LaTeX. It will parse the output of your custom analysis pipeline and create a LaTeX beamer style report, aggregating figures, sample sheets, and other text or image based files into a single document. 
+
+### Example Report Output
+![screen shot 2016-07-07 at 5 51 25 pm](https://cloud.githubusercontent.com/assets/10505524/16671142/c2320dca-446b-11e6-965b-ead64d37082c.png)
 
 ### Analysis Pipeline Setup
 
