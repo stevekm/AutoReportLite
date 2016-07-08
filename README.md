@@ -57,11 +57,11 @@ $ pdflatex auto-report.tex && pdflatex auto-report.tex && pdflatex auto-report.t
 
 #### TIPS:
 - Use the `workflow.Rmd` to set up your pipeline's directory structure
-- Create a parent directory for the pipeline output (e.g. `analysis_pipeline`), with a subdirectory for each sample to be processed (`Sample1`,`Sample2`,etc.); the name of the subdirectory should correspond to the name or ID for the sample. See this example:
+- Create a parent directory for the pipeline output (e.g. `analysis_output`), with a subdirectory for each sample to be processed (`Sample1`,`Sample2`,etc.); the name of the subdirectory should correspond to the name or ID for the sample. See this example:
 
 ```
-steve@macbook:~/AutoReportLite$ tree analysis_pipeline/
-analysis_pipeline/
+steve@macbook:~/AutoReportLite$ tree analysis_output/
+analysis_output/
 |-- Sample1
 |   |-- R_stats.txt
 |   |-- Sample1.distribution_histogram.pdf
