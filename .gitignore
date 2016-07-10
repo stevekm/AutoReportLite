@@ -2,3 +2,5 @@
 *.Rproj
 .Rhistory
 .DS_Store
+README.html
+report-development

@@ -2,69 +2,101 @@
 % 
 % AutoReportLite analysis pipeline & reporting template
 % by Stephen Kelly
-% April 29, 2016
+% July 9, 2016
 % https://github.com/stevekm/AutoReportLite
 % 
 % ~~~~~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~ BEGIN LaTeX ~~~~~~~~ %
 \documentclass[8pt]{beamer} % start LaTeX document
-% set up parameters in R for use in the document
+% ~~~~~~ knitr SETUP ~~~~~~~~ %
 <<doc_setup, include=FALSE>>=
-# % always need this code chunk for RNW files compiled with knitr, never mess with it unless you are a wizard
-# this sets knitr options for the document
+# always need this code chunk for RNW files compiled with knitr, never mess with it
 opts_chunk$set(fig.path='figure/beamer-',fig.align='center',fig.show='hold',size='footnotesize')
+
+# LOAD PACKAGES
+suppressPackageStartupMessages(library(xtable))
 @
-%
-<<report_setup,echo=FALSE,engine='R',eval=TRUE>>=
-# load packages
-suppressPackageStartupMessages(library("Hmisc")) # need for latexTranslate()
-suppressPackageStartupMessages(library(xtable)) # needed to print the sample sheet
+% ~~~~~~ GET REPORT PARAMS AND ITEMS ~~~~~~~~ %
+<<params_file_scan,engine='R',echo=FALSE,eval=TRUE>>=
+# read in the project info text file for report parameters
+ProjInfo<-scan(file = normalizePath(paste(getwd(),"../project_info.txt",sep="/")),character(0), sep = "\n")
 
+# function for parsing the items to display in the report
+params_parseR<- function(project_info,param_to_find,latex=FALSE,normalize_path=FALSE){
+  # project_info: character vector of scanned param file
+  # param_to_find: item to get from the vector
+  # latex=<TRUE|FALSE>: use TRUE to sanitize text for display in the report, otherwise FALSE e.g. file paths
+  
+  # find the desired param 
+  item_found <- gsub(pattern = param_to_find, # remove the param name from the output
+                     replacement = "",
+                     x = grep(pattern = param_to_find, # find the line with the param
+                              x = project_info,
+                              fixed = TRUE,
+                              value = TRUE),
+                     fixed = TRUE)
+  
+  # sanitize the output for display in report
+  if(latex){
+    suppressPackageStartupMessages(library("Hmisc")) # need for latexTranslate()
+    item_found <- latexTranslate(item_found)
+  }
+  
+  if(normalize_path){
+    item_found <- normalizePath(item_found)
+  }
+  
+  return(item_found)
+}
 
-# ~~~~~~~~~~~~
-# NAMES AND LOCATIONS OF ITEMS FOR THE REPORT 
-
+# ~~~~~~ ITEMS FOR THE TITLE SLIDE ~~~~~~~ # 
 # unique ID for the title slide
-Project_ID<-latexTranslate("SmithLab_Taylor_2016-12-31 Sample Statistical Analysis") 
+Project_ID <- params_parseR(project_info = ProjInfo,param_to_find = "PROJECT-TITLE: ",latex = TRUE)
 
 # short ID for the sidebar
-Project_ID_short<-latexTranslate("Sample Statistical Analysis") 
+Project_ID_short <- params_parseR(project_info = ProjInfo,param_to_find = "PROJECT-TITLE-SHORT: ",latex = TRUE)
 
 # document author
-Report_author<-latexTranslate("Stephen Kelly")
+Report_author <- params_parseR(project_info = ProjInfo,param_to_find = "REPORT-AUTHOR: ",latex = TRUE)
 
 # author's email address
-Report_author_email<-latexTranslate("stephen.kelly@nyumc.org")
+Report_author_email <- params_parseR(project_info = ProjInfo,param_to_find = "REPORT-AUTHOR-EMAIL: ",latex = TRUE)
 
 # PI or other person to include in the title page
-PI_name<-latexTranslate("Dr. Smith")
+Client_name <- params_parseR(project_info = ProjInfo,param_to_find = "CLIENT-NAME: ",latex = TRUE)
 
-# the path to the project directory; one level up, get the absolute path
-ProjDir <- system("readlink -f ../",intern=TRUE)
-# you could also set it manually like this:
-# ProjDir<-"/ifs/home/kellys04/AutoReportLite"
+# Get the institute name (your affiliations)
+Institute_line1 <- params_parseR(project_info = ProjInfo,param_to_find = "INSTITUTE-LINE-1: ",latex = TRUE)
+Institute_line2 <- params_parseR(project_info = ProjInfo,param_to_find = "INSTITUTE-LINE-2: ",latex = TRUE)
+# path to the logo figure to use
+logo_file_path <- params_parseR(project_info = ProjInfo,param_to_find = "LOGO: ",latex = FALSE)
+# ~~~~~~~~~~~~~~~ #
+
+
+# ~~~~~~ PATHS TO PROJECT ITEMS ~~~~~~~ # 
+# path to the analysis output directory
+# ProjDir <- normalizePath("../")
+ProjDir <- params_parseR(project_info = ProjInfo,param_to_find = "PROJECT-DIR: ",latex = FALSE,normalize_path = TRUE)
 
 # the directory with the analysis output
-pipelineDir<-paste0(ProjDir,"/analysis_output")
+analysis_output_dir_path <- params_parseR(project_info = ProjInfo,param_to_find = "ANALYSIS-OUTPUT-DIR: ",latex = FALSE,normalize_path = TRUE)
+
+# path to the sample sheet
+SampleSheet_file<-params_parseR(project_info = ProjInfo,param_to_find = "SAMPLESHEET: ",latex = FALSE,normalize_path = TRUE)
 
 # get the subdirs from the output directory
 # # don't include dirs with the name "report"
-sampleDirs<-grep(x = list.dirs(path = pipelineDir,full.names = TRUE,recursive = FALSE),pattern = "report",value = TRUE,invert = TRUE)
+sampleDirs<-grep(x = list.dirs(path = analysis_output_dir_path,full.names = TRUE,recursive = FALSE),pattern = "report",value = TRUE,invert = TRUE)
 
-# another way to exclude dirs: dir(pipelineDir,pattern = "[^report]")[file.info(dir(pipelineDir,pattern = "[^report]"))$isdir]
-# optionally, don't exclude any items:
-# sampleDirs<-list.dirs(path = pipelineDir,full.names = TRUE,recursive = FALSE)
 
-# path to the sample sheet
-SampleSheet_file<-paste0(ProjDir,"/sample-sheet.tsv")
 @
-
+% ~~~~~~ RUN THE PIPELINE (OPTIONAL) ~~~~~~~~ %
 <<run_pipeline,engine='bash',echo=FALSE,include=FALSE,eval=FALSE>>=
-# you can also run the analysis script from a code chunk in the document, if it is setup to support that
-# dont embed because if it requires things outside the scope of this doc
+# you can run the analysis script from a code chunk in this document
+# or run it manually yourself
 
 # script path:
 tmp_script="../code/analysis_pipeline.sh"
-# tmp_script="/ifs/home/kellys04/AutoReportLite/code/analysis_pipeline.sh"
 
 # make sure its executable
 chmod +x $tmp_script
@@ -73,37 +105,18 @@ chmod +x $tmp_script
 $tmp_script
 
 @
-
-
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% LaTeX settings start here:
-\listfiles % get versions of files used for document compliaton, written at the end of the .log file for the report compilation!
+% ~~~~~~~~~~~~~~~ LaTeX SETTINGS ~~~~~~~~~~~~~~~ % 
+\listfiles % write package versions at the end of the .log file 
 \geometry{paperwidth=150mm,paperheight=105mm} % larger page size than normal for larger plots and more flexibility with font sizes
-%\documentclass[8pt,xcolor={dvipsnames}]{beamer}
 \setcounter{secnumdepth}{3} % how many levels deep before section headers stop getting numbers
 \setcounter{tocdepth}{3} % table of contents depth
 \usepackage{breakurl}
-\usepackage{cite} % for citations, BibTeX I think
-\usepackage{etoolbox} % this was not installed on HPCF, its in my home dir right now!! % has extra tools for LaTeX forloops, etc.; might not actually need this, use R loops to cat() LaTeX markup instead, much easier!
-% \usepackage{forloop} % for LaTeX for loops; easier to use R loops to 'cat' TeX into the document instead!!
-% \usepackage{tikz} % for custom graphics
-%\usepackage{subcaption} %for subfigures%
-% \usepackage{amsmath} % for math characters
 \usepackage{graphicx} % good for advanced graphics options
 \usepackage{tabularx} % for fancy table settings..
 \usepackage{url} % for typesetting URLs, also file paths? 
 \usepackage[multidot]{grffile} % support for image files with multiple '.' in the name
-% \usepackage{adjustbox} % for auto-size box to put sample sheet into, also needs collectbox.sty
-% \usepackage[usenames,dvipsnames]{color}
-%%%%%%%%%%%%%experimental for xtable italics http://stackoverflow.com/questions/7996968/formatting-sweave-tables-two-challenges
-% \usepackage{longtable} % allows for tables that break across pages
-% \SweaveOpts{keep.source=TRUE}  % Keeps formatting of the R code.
-%%%%%%%%%%%%%%%%%%%
-%
 % ~~~~~~ BEAMER SPECIFIC SETTINGS ~~~~~~~~ %
 \makeatletter % turn on the '@' command character; needs to come before beamer settings
-% \usetheme{Hannover} %  \usetheme{PaloAlto} % Bergen
-% \usetheme[left]{Marburg} %  width= % hideothersubsections
 \usetheme[left,hideothersubsections,width=3cm]{Marburg} %  width= % hideothersubsections
 % location installed themes and such: /usr/share/texmf/tex/latex/beamer
 \addtobeamertemplate{navigation symbols}{}{ % % this adds the page numbers at the bottom of the slide
@@ -114,20 +127,15 @@ $tmp_script
 }
 \makeatother % turn off the '@' command character; needs to come after beamer settings
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
-% \graphicspath{/home/varitint/Dropbox/Lab/Teaching/Genomics_Class/Genomics_Lesson3_R!/With_embedded_R_code/figure/} % default path to find figures
-%
-%%%%%%%%%%
 \begin{document}
-% Create the Title page
+% ~~~~~~~~~~~~~~ TITLE PAGE ~~~~~~~~~~~~~~~~~~~~~~~%
 \title[\Sexpr{Project_ID_short}]{\Sexpr{Project_ID}}
 \author{\Sexpr{Report_author}}
-\institute{\normalsize Dr. Aristotelis Tsirigos \\ PI: \Sexpr{PI_name} \\ Genome Technology Center, \\ NYU Langone Medical Center, New York, NY 10016}
+\institute{\normalsize Client: \Sexpr{Client_name} \\ \Sexpr{Institute_line1} \\ \Sexpr{Institute_line2}}
 \date{\texttt{\Sexpr{Report_author_email}} \\ \today}
-\titlegraphic{\includegraphics[width=0.25\textwidth]{figure/NYULMC_white}} % image to show on the title slide
+\titlegraphic{\includegraphics[width=0.25\textwidth]{\Sexpr{logo_file_path}}} % image to show on the title slide
 \maketitle
-
-% REPORT STARTS HERE!
-%
+% ~~~~~~~~~~~~~~ REPORT STARTS HERE ~~~~~~~~~~~~~~~~~~~~~~~%
 <<print_samplesheet,results='asis',echo=FALSE,eval=TRUE>>=
 #
 # PRINT THE SAMPLE SHEET
@@ -153,7 +161,7 @@ for(i in seq_along(tmpdf)){
 }
 
 @
-
+%
 <<print_samples,results='asis',echo=FALSE,eval=TRUE>>=
 for(i in seq_along(sampleDirs)){
   
@@ -221,12 +229,13 @@ for(i in seq_along(sampleDirs)){
 \section{Session Information}
 % \begin{frame}{System and Session Information}
 % \begin{frame}[fragile]{System and Session Information}
-% \small{This report was prepared using the AutoReportLite template, available at \url{https://github.com/stevekm/AutoReportLite}}
 <<Session>>=
 system('uname -srv',intern=T)
 sessionInfo()
 save.image(compress = TRUE)
 @
-\scriptsize{\LaTeX{} version: \LaTeXe~ \fmtversion}
+\scriptsize{\LaTeX{} version: \LaTeXe~ \fmtversion} \\
+\scriptsize{This report was prepared using the AutoReportLite template, available at \url{https://github.com/stevekm/AutoReportLite}}
+
 % \end{frame}
 \end{document}

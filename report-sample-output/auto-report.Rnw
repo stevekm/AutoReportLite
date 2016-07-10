@@ -1,1 +1,241 @@
-../report/auto-report.Rnw
+% ~~~~~~~~~~~~~~~~~~~~~~~
+% 
+% AutoReportLite analysis pipeline & reporting template
+% by Stephen Kelly
+% July 9, 2016
+% https://github.com/stevekm/AutoReportLite
+% 
+% ~~~~~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~ BEGIN LaTeX ~~~~~~~~ %
+\documentclass[8pt]{beamer} % start LaTeX document
+% ~~~~~~ knitr SETUP ~~~~~~~~ %
+<<doc_setup, include=FALSE>>=
+# always need this code chunk for RNW files compiled with knitr, never mess with it
+opts_chunk$set(fig.path='figure/beamer-',fig.align='center',fig.show='hold',size='footnotesize')
+
+# LOAD PACKAGES
+suppressPackageStartupMessages(library(xtable))
+@
+% ~~~~~~ GET REPORT PARAMS AND ITEMS ~~~~~~~~ %
+<<params_file_scan,engine='R',echo=FALSE,eval=TRUE>>=
+# read in the project info text file for report parameters
+ProjInfo<-scan(file = normalizePath(paste(getwd(),"../project_info.txt",sep="/")),character(0), sep = "\n")
+
+# function for parsing the items to display in the report
+params_parseR<- function(project_info,param_to_find,latex=FALSE,normalize_path=FALSE){
+  # project_info: character vector of scanned param file
+  # param_to_find: item to get from the vector
+  # latex=<TRUE|FALSE>: use TRUE to sanitize text for display in the report, otherwise FALSE e.g. file paths
+  
+  # find the desired param 
+  item_found <- gsub(pattern = param_to_find, # remove the param name from the output
+                     replacement = "",
+                     x = grep(pattern = param_to_find, # find the line with the param
+                              x = project_info,
+                              fixed = TRUE,
+                              value = TRUE),
+                     fixed = TRUE)
+  
+  # sanitize the output for display in report
+  if(latex){
+    suppressPackageStartupMessages(library("Hmisc")) # need for latexTranslate()
+    item_found <- latexTranslate(item_found)
+  }
+  
+  if(normalize_path){
+    item_found <- normalizePath(item_found)
+  }
+  
+  return(item_found)
+}
+
+# ~~~~~~ ITEMS FOR THE TITLE SLIDE ~~~~~~~ # 
+# unique ID for the title slide
+Project_ID <- params_parseR(project_info = ProjInfo,param_to_find = "PROJECT-TITLE: ",latex = TRUE)
+
+# short ID for the sidebar
+Project_ID_short <- params_parseR(project_info = ProjInfo,param_to_find = "PROJECT-TITLE-SHORT: ",latex = TRUE)
+
+# document author
+Report_author <- params_parseR(project_info = ProjInfo,param_to_find = "REPORT-AUTHOR: ",latex = TRUE)
+
+# author's email address
+Report_author_email <- params_parseR(project_info = ProjInfo,param_to_find = "REPORT-AUTHOR-EMAIL: ",latex = TRUE)
+
+# PI or other person to include in the title page
+Client_name <- params_parseR(project_info = ProjInfo,param_to_find = "CLIENT-NAME: ",latex = TRUE)
+
+# Get the institute name (your affiliations)
+Institute_line1 <- params_parseR(project_info = ProjInfo,param_to_find = "INSTITUTE-LINE-1: ",latex = TRUE)
+Institute_line2 <- params_parseR(project_info = ProjInfo,param_to_find = "INSTITUTE-LINE-2: ",latex = TRUE)
+# path to the logo figure to use
+logo_file_path <- params_parseR(project_info = ProjInfo,param_to_find = "LOGO: ",latex = FALSE)
+# ~~~~~~~~~~~~~~~ #
+
+
+# ~~~~~~ PATHS TO PROJECT ITEMS ~~~~~~~ # 
+# path to the analysis output directory
+# ProjDir <- normalizePath("../")
+ProjDir <- params_parseR(project_info = ProjInfo,param_to_find = "PROJECT-DIR: ",latex = FALSE,normalize_path = TRUE)
+
+# the directory with the analysis output
+analysis_output_dir_path <- params_parseR(project_info = ProjInfo,param_to_find = "ANALYSIS-OUTPUT-DIR: ",latex = FALSE,normalize_path = TRUE)
+
+# path to the sample sheet
+SampleSheet_file<-params_parseR(project_info = ProjInfo,param_to_find = "SAMPLESHEET: ",latex = FALSE,normalize_path = TRUE)
+
+# get the subdirs from the output directory
+# # don't include dirs with the name "report"
+sampleDirs<-grep(x = list.dirs(path = analysis_output_dir_path,full.names = TRUE,recursive = FALSE),pattern = "report",value = TRUE,invert = TRUE)
+
+
+@
+% ~~~~~~ RUN THE PIPELINE (OPTIONAL) ~~~~~~~~ %
+<<run_pipeline,engine='bash',echo=FALSE,include=FALSE,eval=FALSE>>=
+# you can run the analysis script from a code chunk in this document
+# or run it manually yourself
+
+# script path:
+tmp_script="../code/analysis_pipeline.sh"
+
+# make sure its executable
+chmod +x $tmp_script
+
+# run the script:
+$tmp_script
+
+@
+% ~~~~~~~~~~~~~~~ LaTeX SETTINGS ~~~~~~~~~~~~~~~ % 
+\listfiles % write package versions at the end of the .log file 
+\geometry{paperwidth=150mm,paperheight=105mm} % larger page size than normal for larger plots and more flexibility with font sizes
+\setcounter{secnumdepth}{3} % how many levels deep before section headers stop getting numbers
+\setcounter{tocdepth}{3} % table of contents depth
+\usepackage{breakurl}
+\usepackage{graphicx} % good for advanced graphics options
+\usepackage{tabularx} % for fancy table settings..
+\usepackage{url} % for typesetting URLs, also file paths? 
+\usepackage[multidot]{grffile} % support for image files with multiple '.' in the name
+% ~~~~~~ BEAMER SPECIFIC SETTINGS ~~~~~~~~ %
+\makeatletter % turn on the '@' command character; needs to come before beamer settings
+\usetheme[left,hideothersubsections,width=3cm]{Marburg} %  width= % hideothersubsections
+% location installed themes and such: /usr/share/texmf/tex/latex/beamer
+\addtobeamertemplate{navigation symbols}{}{ % % this adds the page numbers at the bottom of the slide
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
+\makeatother % turn off the '@' command character; needs to come after beamer settings
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+\begin{document}
+% ~~~~~~~~~~~~~~ TITLE PAGE ~~~~~~~~~~~~~~~~~~~~~~~%
+\title[\Sexpr{Project_ID_short}]{\Sexpr{Project_ID}}
+\author{\Sexpr{Report_author}}
+\institute{\normalsize Client: \Sexpr{Client_name} \\ \Sexpr{Institute_line1} \\ \Sexpr{Institute_line2}}
+\date{\texttt{\Sexpr{Report_author_email}} \\ \today}
+\titlegraphic{\includegraphics[width=0.25\textwidth]{\Sexpr{logo_file_path}}} % image to show on the title slide
+\maketitle
+% ~~~~~~~~~~~~~~ REPORT STARTS HERE ~~~~~~~~~~~~~~~~~~~~~~~%
+<<print_samplesheet,results='asis',echo=FALSE,eval=TRUE>>=
+#
+# PRINT THE SAMPLE SHEET
+#
+
+# read in the sample sheet
+PipelineSampleSheet<-read.table(file =SampleSheet_file,header = T,sep = "\t" )
+
+# split the dataframe into smaller 50 row dataframes to fit on the page better
+tmpdf<-split(PipelineSampleSheet,(seq_len(nrow(PipelineSampleSheet))-1) %/%50)
+
+# print the section heading
+cat("\\section{", "Sample Sheet", "}\n", sep="") 
+
+# print each sub-df
+for(i in seq_along(tmpdf)){
+  # print(nrow(tmpdf[[i]]))
+  cat("\\begin{frame}{"," Analysis Sample Sheet}\n", sep="") 
+  # don't include the fields with long file paths; adjust the scalebox as needed
+  print(xtable(x = tmpdf[[i]][,grep("^R|^ref",colnames(tmpdf[[i]]),invert = T)]),size="\\footnotesize",scalebox = 1.3)
+
+  cat("\\end{frame}\n\n") 
+}
+
+@
+%
+<<print_samples,results='asis',echo=FALSE,eval=TRUE>>=
+for(i in seq_along(sampleDirs)){
+  
+  # get the sample subdirecotry
+  tmpSampleDir<-sampleDirs[i]
+  # print(tmpSampleDir)
+  
+  # get the PDFs in subdirecotry
+  tmpSamplePDF_files<-dir(tmpSampleDir,pattern = "*.pdf")
+  # print(tmpSamplePDF_files)
+  
+  # make a new section label per sample
+  tmpSampleID<-basename(tmpSampleDir)
+  cat("\\section{", latexTranslate(tmpSampleID), "}\n", sep="") 
+  
+  
+  # PRINT THE STATS
+  # # get the stats file: plain text version:
+  tmpAlignStatsFile<-dir(tmpSampleDir,pattern = "*stats.txt",full.names = TRUE)
+  # TSV version:
+  # tmpAlignStatsFile<-dir(tmpSampleDir,pattern = "*.tsv",full.names = TRUE)
+  
+  # read in the file - plain text version:
+  tmpAlignStats<-scan(file =tmpAlignStatsFile,character(0), sep = "\n")
+  # TSV version:
+  # tmpAlignStats<-read.table(tmpAlignStatsFile,header = TRUE,sep = "\t",stringsAsFactors = FALSE,check.names = FALSE)
+  
+  # print it in a new beamer slide frame
+  cat("\\subsubsection{", latexTranslate("Stats"), "}\n", sep="")
+  cat("\\begin{frame}{", latexTranslate("Stats"), " }\n", sep="")
+  cat("\\small{",sep = "\n")
+  # plain text version:
+  cat(latexTranslate(tmpAlignStats),sep = "\n\n")
+  # TSV version:
+  # print(xtable(x = tmpAlignStats),size="\\footnotesize",scalebox = 1)
+  cat("}\n",sep = "\n")
+  cat("\\end{frame}\n\n")
+  
+  # PRINT THE FIGURES
+  # make a new subsection per figure
+  for(q in seq_along(tmpSamplePDF_files)){
+    tmpPDF<-tmpSamplePDF_files[q]
+    # print the subsetion
+    # shorten the label by removing the sample ID from it
+    tmpFigureID<-gsub(pattern = paste0(tmpSampleID,"."),replacement = "",x = tmpPDF,fixed = TRUE)
+    cat("\\subsubsection{", latexTranslate(tmpFigureID), "}\n", sep="")
+    
+    # begin a new beamer frame
+    cat("\\begin{frame}{",latexTranslate(tmpSampleID),latexTranslate(" - "), latexTranslate(tmpFigureID), " }\n", sep="")
+    
+    # write the full file path
+    cat("\\scriptsize{", latexTranslate(paste0(tmpSampleDir,"/",tmpPDF)), "}\n", sep="") 
+    
+    # print the figure
+    cat("\\includegraphics[width=0.9\\linewidth,height=0.9\\textheight,keepaspectratio]{", paste0(tmpSampleDir,"/",tmpPDF), "}\n", sep="")
+    
+    # end the beamer frame
+    cat("\\end{frame}\n\n")
+  }
+}
+
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Session Information}
+% \begin{frame}{System and Session Information}
+% \begin{frame}[fragile]{System and Session Information}
+<<Session>>=
+system('uname -srv',intern=T)
+sessionInfo()
+save.image(compress = TRUE)
+@
+\scriptsize{\LaTeX{} version: \LaTeXe~ \fmtversion} \\
+\scriptsize{This report was prepared using the AutoReportLite template, available at \url{https://github.com/stevekm/AutoReportLite}}
+
+% \end{frame}
+\end{document}

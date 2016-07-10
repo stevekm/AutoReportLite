@@ -2,10 +2,11 @@
 % 
 % AutoReportLite analysis pipeline & reporting template
 % by Stephen Kelly
-% April 29, 2016
+% July 9, 2016
 % https://github.com/stevekm/AutoReportLite
 % 
 % ~~~~~~~~~~~~~~~~~~~~~~~~
+% ~~~~~~ BEGIN LaTeX ~~~~~~~~ %
 \documentclass[8pt]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
 %% maxwidth is the original width if it is less than linewidth
 %% otherwise use linewidth (to make sure the graphics do not exceed the margin)
@@ -56,43 +57,24 @@
 \newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
 
 \usepackage{alltt} % start LaTeX document
-% set up parameters in R for use in the document
+% ~~~~~~ knitr SETUP ~~~~~~~~ %
 
-%
+% ~~~~~~ GET REPORT PARAMS AND ITEMS ~~~~~~~~ %
 
+% ~~~~~~ RUN THE PIPELINE (OPTIONAL) ~~~~~~~~ %
 
-
-
-
-% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-% LaTeX settings start here:
-\listfiles % get versions of files used for document compliaton, written at the end of the .log file for the report compilation!
+% ~~~~~~~~~~~~~~~ LaTeX SETTINGS ~~~~~~~~~~~~~~~ % 
+\listfiles % write package versions at the end of the .log file 
 \geometry{paperwidth=150mm,paperheight=105mm} % larger page size than normal for larger plots and more flexibility with font sizes
-%\documentclass[8pt,xcolor={dvipsnames}]{beamer}
 \setcounter{secnumdepth}{3} % how many levels deep before section headers stop getting numbers
 \setcounter{tocdepth}{3} % table of contents depth
 \usepackage{breakurl}
-\usepackage{cite} % for citations, BibTeX I think
-\usepackage{etoolbox} % this was not installed on HPCF, its in my home dir right now!! % has extra tools for LaTeX forloops, etc.; might not actually need this, use R loops to cat() LaTeX markup instead, much easier!
-% \usepackage{forloop} % for LaTeX for loops; easier to use R loops to 'cat' TeX into the document instead!!
-% \usepackage{tikz} % for custom graphics
-%\usepackage{subcaption} %for subfigures%
-% \usepackage{amsmath} % for math characters
 \usepackage{graphicx} % good for advanced graphics options
 \usepackage{tabularx} % for fancy table settings..
 \usepackage{url} % for typesetting URLs, also file paths? 
 \usepackage[multidot]{grffile} % support for image files with multiple '.' in the name
-% \usepackage{adjustbox} % for auto-size box to put sample sheet into, also needs collectbox.sty
-% \usepackage[usenames,dvipsnames]{color}
-%%%%%%%%%%%%%experimental for xtable italics http://stackoverflow.com/questions/7996968/formatting-sweave-tables-two-challenges
-% \usepackage{longtable} % allows for tables that break across pages
-% \SweaveOpts{keep.source=TRUE}  % Keeps formatting of the R code.
-%%%%%%%%%%%%%%%%%%%
-%
 % ~~~~~~ BEAMER SPECIFIC SETTINGS ~~~~~~~~ %
 \makeatletter % turn on the '@' command character; needs to come before beamer settings
-% \usetheme{Hannover} %  \usetheme{PaloAlto} % Bergen
-% \usetheme[left]{Marburg} %  width= % hideothersubsections
 \usetheme[left,hideothersubsections,width=3cm]{Marburg} %  width= % hideothersubsections
 % location installed themes and such: /usr/share/texmf/tex/latex/beamer
 \addtobeamertemplate{navigation symbols}{}{ % % this adds the page numbers at the bottom of the slide
@@ -103,25 +85,20 @@
 }
 \makeatother % turn off the '@' command character; needs to come after beamer settings
 % ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
-% \graphicspath{/home/varitint/Dropbox/Lab/Teaching/Genomics_Class/Genomics_Lesson3_R!/With_embedded_R_code/figure/} % default path to find figures
-%
-%%%%%%%%%%
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
-% Create the Title page
-\title[Sample Statistical Analysis]{SmithLab\_Taylor\_2016-12-31 Sample Statistical Analysis}
+% ~~~~~~~~~~~~~~ TITLE PAGE ~~~~~~~~~~~~~~~~~~~~~~~%
+\title[Sample Statistical Analysis]{SmithLab Sample Statistical Analysis}
 \author{Stephen Kelly}
-\institute{\normalsize Dr. Aristotelis Tsirigos \\ PI: Dr. Smith \\ Genome Technology Center, \\ NYU Langone Medical Center, New York, NY 10016}
+\institute{\normalsize Client: Dr. J. Salk \\ Genome Technology Center, \\ NYU Langone Medical Center, New York, NY 10016}
 \date{\texttt{stephen.kelly@nyumc.org} \\ \today}
-\titlegraphic{\includegraphics[width=0.25\textwidth]{figure/NYULMC_white}} % image to show on the title slide
+\titlegraphic{\includegraphics[width=0.25\textwidth]{figure/NYULMC_white.jpg}} % image to show on the title slide
 \maketitle
-
-% REPORT STARTS HERE!
-%
+% ~~~~~~~~~~~~~~ REPORT STARTS HERE ~~~~~~~~~~~~~~~~~~~~~~~%
 \section{Sample Sheet}
 \begin{frame}{ Analysis Sample Sheet}
-% latex table generated in R 3.3.0 by xtable 1.8-2 package
-% Sun Jul  3 11:14:05 2016
+% latex table generated in R 3.3.1 by xtable 1.8-2 package
+% Sun Jul 10 14:54:15 2016
 \begin{table}[ht]
 \centering
 \begingroup\footnotesize
@@ -143,7 +120,7 @@
 \end{frame}
 
 
-
+%
 \section{Sample1}
 \subsubsection{Stats}
 \begin{frame}{Stats }
@@ -169,14 +146,14 @@ Some sample stats
 
 \subsubsection{distribution\_histogram.pdf}
 \begin{frame}{Sample1 - distribution\_histogram.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_output/Sample1/Sample1.distribution\_histogram.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_output/Sample1/Sample1.distribution_histogram.pdf}
+\scriptsize{/Users/steve/AutoReportLite/analysis\_output/Sample1/Sample1.distribution\_histogram.pdf}
+\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/Users/steve/AutoReportLite/analysis_output/Sample1/Sample1.distribution_histogram.pdf}
 \end{frame}
 
 \subsubsection{random\_distribution.pdf}
 \begin{frame}{Sample1 - random\_distribution.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_output/Sample1/Sample1.random\_distribution.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_output/Sample1/Sample1.random_distribution.pdf}
+\scriptsize{/Users/steve/AutoReportLite/analysis\_output/Sample1/Sample1.random\_distribution.pdf}
+\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/Users/steve/AutoReportLite/analysis_output/Sample1/Sample1.random_distribution.pdf}
 \end{frame}
 
 \section{Sample2}
@@ -204,14 +181,14 @@ Some sample stats
 
 \subsubsection{distribution\_histogram.pdf}
 \begin{frame}{Sample2 - distribution\_histogram.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_output/Sample2/Sample2.distribution\_histogram.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_output/Sample2/Sample2.distribution_histogram.pdf}
+\scriptsize{/Users/steve/AutoReportLite/analysis\_output/Sample2/Sample2.distribution\_histogram.pdf}
+\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/Users/steve/AutoReportLite/analysis_output/Sample2/Sample2.distribution_histogram.pdf}
 \end{frame}
 
 \subsubsection{random\_distribution.pdf}
 \begin{frame}{Sample2 - random\_distribution.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_output/Sample2/Sample2.random\_distribution.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_output/Sample2/Sample2.random_distribution.pdf}
+\scriptsize{/Users/steve/AutoReportLite/analysis\_output/Sample2/Sample2.random\_distribution.pdf}
+\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/Users/steve/AutoReportLite/analysis_output/Sample2/Sample2.random_distribution.pdf}
 \end{frame}
 
 \section{Sample3}
@@ -239,14 +216,14 @@ Some sample stats
 
 \subsubsection{distribution\_histogram.pdf}
 \begin{frame}{Sample3 - distribution\_histogram.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_output/Sample3/Sample3.distribution\_histogram.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_output/Sample3/Sample3.distribution_histogram.pdf}
+\scriptsize{/Users/steve/AutoReportLite/analysis\_output/Sample3/Sample3.distribution\_histogram.pdf}
+\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/Users/steve/AutoReportLite/analysis_output/Sample3/Sample3.distribution_histogram.pdf}
 \end{frame}
 
 \subsubsection{random\_distribution.pdf}
 \begin{frame}{Sample3 - random\_distribution.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_output/Sample3/Sample3.random\_distribution.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_output/Sample3/Sample3.random_distribution.pdf}
+\scriptsize{/Users/steve/AutoReportLite/analysis\_output/Sample3/Sample3.random\_distribution.pdf}
+\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/Users/steve/AutoReportLite/analysis_output/Sample3/Sample3.random_distribution.pdf}
 \end{frame}
 
 \section{Sample4}
@@ -274,14 +251,14 @@ Some sample stats
 
 \subsubsection{distribution\_histogram.pdf}
 \begin{frame}{Sample4 - distribution\_histogram.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_output/Sample4/Sample4.distribution\_histogram.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_output/Sample4/Sample4.distribution_histogram.pdf}
+\scriptsize{/Users/steve/AutoReportLite/analysis\_output/Sample4/Sample4.distribution\_histogram.pdf}
+\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/Users/steve/AutoReportLite/analysis_output/Sample4/Sample4.distribution_histogram.pdf}
 \end{frame}
 
 \subsubsection{random\_distribution.pdf}
 \begin{frame}{Sample4 - random\_distribution.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_output/Sample4/Sample4.random\_distribution.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_output/Sample4/Sample4.random_distribution.pdf}
+\scriptsize{/Users/steve/AutoReportLite/analysis\_output/Sample4/Sample4.random\_distribution.pdf}
+\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/Users/steve/AutoReportLite/analysis_output/Sample4/Sample4.random_distribution.pdf}
 \end{frame}
 
 \section{Sample5}
@@ -309,14 +286,14 @@ Some sample stats
 
 \subsubsection{distribution\_histogram.pdf}
 \begin{frame}{Sample5 - distribution\_histogram.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_output/Sample5/Sample5.distribution\_histogram.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_output/Sample5/Sample5.distribution_histogram.pdf}
+\scriptsize{/Users/steve/AutoReportLite/analysis\_output/Sample5/Sample5.distribution\_histogram.pdf}
+\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/Users/steve/AutoReportLite/analysis_output/Sample5/Sample5.distribution_histogram.pdf}
 \end{frame}
 
 \subsubsection{random\_distribution.pdf}
 \begin{frame}{Sample5 - random\_distribution.pdf }
-\scriptsize{/ifs/home/kellys04/AutoReportLite/analysis\_output/Sample5/Sample5.random\_distribution.pdf}
-\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/ifs/home/kellys04/AutoReportLite/analysis_output/Sample5/Sample5.random_distribution.pdf}
+\scriptsize{/Users/steve/AutoReportLite/analysis\_output/Sample5/Sample5.random\_distribution.pdf}
+\includegraphics[width=0.9\linewidth,height=0.9\textheight,keepaspectratio]{/Users/steve/AutoReportLite/analysis_output/Sample5/Sample5.random_distribution.pdf}
 \end{frame}
 
 
@@ -325,22 +302,21 @@ Some sample stats
 \section{Session Information}
 % \begin{frame}{System and Session Information}
 % \begin{frame}[fragile]{System and Session Information}
-% \small{This report was prepared using the AutoReportLite template, available at \url{https://github.com/stevekm/AutoReportLite}}
 \begin{knitrout}\footnotesize
 \definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
 \begin{alltt}
 \hlkwd{system}\hlstd{(}\hlstr{'uname -srv'}\hlstd{,}\hlkwc{intern}\hlstd{=T)}
 \end{alltt}
 \begin{verbatim}
-## [1] "Linux 2.6.32-573.22.1.el6.x86_64 #1 SMP Wed Mar 23 03:35:39 UTC 2016"
+## [1] "Darwin 15.5.0 Darwin Kernel Version 15.5.0: Tue Apr 19 18:36:36 PDT 2016; root:xnu-3248.50.21~8/RELEASE_X86_64"
 \end{verbatim}
 \begin{alltt}
 \hlkwd{sessionInfo}\hlstd{()}
 \end{alltt}
 \begin{verbatim}
-## R version 3.3.0 (2016-05-03)
-## Platform: x86_64-pc-linux-gnu (64-bit)
-## Running under: CentOS release 6.3 (Final)
+## R version 3.3.1 (2016-06-21)
+## Platform: x86_64-apple-darwin13.4.0 (64-bit)
+## Running under: OS X 10.11.5 (El Capitan)
 ## 
 ## locale:
 ## [1] C
@@ -349,14 +325,14 @@ Some sample stats
 ## [1] stats     graphics  grDevices utils     datasets  methods   base     
 ## 
 ## other attached packages:
-## [1] xtable_1.8-2    Hmisc_3.17-4    ggplot2_2.1.0   Formula_1.2-1  
-## [5] survival_2.39-4 lattice_0.20-33 knitr_1.13     
+## [1] Hmisc_3.17-4    ggplot2_2.1.0   Formula_1.2-1   survival_2.39-5
+## [5] lattice_0.20-33 xtable_1.8-2    knitr_1.13     
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] Rcpp_0.12.5         cluster_2.0.4       magrittr_1.5       
-##  [4] splines_3.3.0       munsell_0.4.3       colorspace_1.2-6   
+##  [4] splines_3.3.1       munsell_0.4.3       colorspace_1.2-6   
 ##  [7] stringr_1.0.0       highr_0.6           plyr_1.8.4         
-## [10] tools_3.3.0         nnet_7.3-12         grid_3.3.0         
+## [10] tools_3.3.1         nnet_7.3-12         grid_3.3.1         
 ## [13] data.table_1.9.6    gtable_0.2.0        latticeExtra_0.6-28
 ## [16] Matrix_1.2-6        gridExtra_2.2.1     RColorBrewer_1.1-2 
 ## [19] formatR_1.4         acepack_1.3-3.3     rpart_4.1-10       
@@ -368,6 +344,8 @@ Some sample stats
 \end{alltt}
 \end{kframe}
 \end{knitrout}
-\scriptsize{\LaTeX{} version: \LaTeXe~ \fmtversion}
+\scriptsize{\LaTeX{} version: \LaTeXe~ \fmtversion} \\
+\scriptsize{This report was prepared using the AutoReportLite template, available at \url{https://github.com/stevekm/AutoReportLite}}
+
 % \end{frame}
 \end{document}
