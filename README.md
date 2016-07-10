@@ -24,10 +24,10 @@ Parse the sample sheet to create subdirectories per sample and pass items to the
 ### Report Compilation
 
 #### Step 4.
-Adjust report file to set project information, file paths, figures, as needed for inclusion in the report (in file`report/auto-report.Rnw`, file paths are in code chunk labeled `report_setup`). 
+Adjust `project_info.txt` file to set project information, file paths, figures, as needed for inclusion in the report. 
 
 #### Step 5.
-Compile the RNW file with knitr:
+Compile the `report.Rnw` file with knitr:
 
 ```
 $ # in terminal, change to report dir and start R
