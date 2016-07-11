@@ -53,6 +53,7 @@ Rscript --slave --no-save --no-restore - "$1" <<EOF
     # library("knitr",lib.loc = tmp_dir)
 
     # exit if knitr not installed, haven't fogured out yet how to get the script to install it locally for the user / session
+    # # NOTE: I have an install packages script in the Bioinformatics repo, use that next time
     quit()
   } else {
   cat("knitr is already installed, loading knitr\n")
