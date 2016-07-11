@@ -15,3 +15,9 @@ CLIENT-NAME: Dr. J. Salk
 INSTITUTE-LINE-1: Genome Technology Center,
 INSTITUTE-LINE-2: NYU Langone Medical Center, New York, NY 10016
 LOGO: figure/NYULMC_white.jpg
+
+# items for the report
+DIRECTORY_DEPTH: 1
+FIGURES_TO_INCLUDE: *.pdf
+TEXT_FILE_TO_INCLUDE: *stats.txt
+

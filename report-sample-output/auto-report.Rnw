@@ -22,7 +22,7 @@ suppressPackageStartupMessages(library(xtable))
 ProjInfo<-scan(file = normalizePath(paste(getwd(),"../project_info.txt",sep="/")),character(0), sep = "\n")
 
 # function for parsing the items to display in the report
-params_parseR<- function(project_info,param_to_find,latex=FALSE,normalize_path=FALSE){
+params_parseR<- function(project_info,param_to_find,latex=FALSE,normalize_path=FALSE,numeric=FALSE){
   # project_info: character vector of scanned param file
   # param_to_find: item to get from the vector
   # latex=<TRUE|FALSE>: use TRUE to sanitize text for display in the report, otherwise FALSE e.g. file paths
@@ -44,6 +44,10 @@ params_parseR<- function(project_info,param_to_find,latex=FALSE,normalize_path=F
   
   if(normalize_path){
     item_found <- normalizePath(item_found)
+  }
+  
+  if(numeric){
+    item_found <- as.numeric(item_found)
   }
   
   return(item_found)
@@ -84,12 +88,22 @@ analysis_output_dir_path <- params_parseR(project_info = ProjInfo,param_to_find 
 # path to the sample sheet
 SampleSheet_file<-params_parseR(project_info = ProjInfo,param_to_find = "SAMPLESHEET: ",latex = FALSE,normalize_path = TRUE)
 
+# depth to search the output directory
+outdir_search_depth <- params_parseR(project_info = ProjInfo,param_to_find = "DIRECTORY_DEPTH: ",latex = FALSE,numeric = TRUE)
+
+# figures inclusion search pattern
+figure_pattern <- params_parseR(project_info = ProjInfo,param_to_find = "FIGURES_TO_INCLUDE: ")
+
+# text based files to include
+text_file_pattern <- params_parseR(project_info = ProjInfo,param_to_find = "TEXT_FILE_TO_INCLUDE: ")
+
 # get the subdirs from the output directory
 # # don't include dirs with the name "report"
 sampleDirs<-grep(x = list.dirs(path = analysis_output_dir_path,full.names = TRUE,recursive = FALSE),pattern = "report",value = TRUE,invert = TRUE)
 
 
 @
+
 % ~~~~~~ RUN THE PIPELINE (OPTIONAL) ~~~~~~~~ %
 <<run_pipeline,engine='bash',echo=FALSE,include=FALSE,eval=FALSE>>=
 # you can run the analysis script from a code chunk in this document
@@ -170,7 +184,7 @@ for(i in seq_along(sampleDirs)){
   # print(tmpSampleDir)
   
   # get the PDFs in subdirecotry
-  tmpSamplePDF_files<-dir(tmpSampleDir,pattern = "*.pdf")
+  tmpSamplePDF_files<-dir(tmpSampleDir,pattern = figure_pattern)
   # print(tmpSamplePDF_files)
   
   # make a new section label per sample
@@ -180,7 +194,7 @@ for(i in seq_along(sampleDirs)){
   
   # PRINT THE STATS
   # # get the stats file: plain text version:
-  tmpAlignStatsFile<-dir(tmpSampleDir,pattern = "*stats.txt",full.names = TRUE)
+  tmpAlignStatsFile<-dir(tmpSampleDir,pattern = text_file_pattern,full.names = TRUE)
   # TSV version:
   # tmpAlignStatsFile<-dir(tmpSampleDir,pattern = "*.tsv",full.names = TRUE)
   

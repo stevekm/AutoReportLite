@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  10 JUL 2016 14:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  11 JUL 2016 05:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -785,20 +785,20 @@ tim
 (./auto-report.aux)
 \openout1 = `auto-report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
+LaTeX Font Info:    ... okay on input line 90.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -864,7 +864,7 @@ e
 ))
 ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box54
-Package hyperref Info: Link coloring OFF on input line 89.
+Package hyperref Info: Link coloring OFF on input line 90.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -874,66 +874,66 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count161
 )
-LaTeX Info: Redefining \ref on input line 89.
-LaTeX Info: Redefining \pageref on input line 89.
-LaTeX Info: Redefining \nameref on input line 89.
+LaTeX Info: Redefining \ref on input line 90.
+LaTeX Info: Redefining \pageref on input line 90.
+LaTeX Info: Redefining \nameref on input line 90.
 
 (./auto-report.out) (./auto-report.out)
 \@outlinefile=\write5
 \openout5 = `auto-report.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 89.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 90.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 89.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 90.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 89.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 89.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 90.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 89.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 89.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 89.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 90.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 89.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 89.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 89.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 90.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 89.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 89.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 89.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 90.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 89.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 89.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 90.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 89.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 90.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 89.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 89.
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 89.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 89.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 89.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 90.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 89.
-LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 89.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 90.
+LaTeX Font Info:    Redeclaring symbol font `pureletters' on input line 90.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `normal'
-(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 8
-9.
+(Font)                  OT1/cmss/m/it --> OT1/mathkerncmss/m/sl on input line 9
+0.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/cmss/bx/it --> OT1/mathkerncmss/m/sl on input line 
-89.
+90.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
 (Font)                  OT1/mathkerncmss/m/sl --> OT1/mathkerncmss/bx/sl on inp
-ut line 89.
+ut line 90.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/beamer/translator/dicts/translato
 r-basic-dictionary/translator-basic-dictionary-English.dict
@@ -959,39 +959,39 @@ Dictionary: translator-numbers-dictionary, Language: English
 r-theorem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 89.
+LaTeX Info: Redefining \includegraphics on input line 90.
 
 (./auto-report.nav)
 
 Package hyperref Warning: Option `pdfauthor' has already been used,
-(hyperref)                setting the option has no effect on input line 92.
+(hyperref)                setting the option has no effect on input line 93.
 
 <figure/NYULMC_white.jpg, id=43, 401.5pt x 169.63374pt>
 File: figure/NYULMC_white.jpg Graphic file (type jpg)
 
 <use figure/NYULMC_white.jpg>
-Package pdftex.def Info: figure/NYULMC_white.jpg used on input line 96.
+Package pdftex.def Info: figure/NYULMC_white.jpg used on input line 97.
 (pdftex.def)             Requested size: 78.24509pt x 33.05902pt.
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 96.
+(Font)              size <5> substituted on input line 97.
 
 [1{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
  <./figure/NYULMC_white.jpg>]
-LaTeX Font Info:    Try loading font information for U+msa on input line 120.
+LaTeX Font Info:    Try loading font information for U+msa on input line 121.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 120.
+LaTeX Font Info:    Try loading font information for U+msb on input line 121.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 120.
+line 121.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
@@ -1009,7 +1009,7 @@ histogram.pdf Graphic file (type pdf)
 <use /Users/steve/AutoReportLite/analysis_output/Sample1/Sample1.distribution_h
 istogram.pdf>
 Package pdftex.def Info: /Users/steve/AutoReportLite/analysis_output/Sample1/Sa
-mple1.distribution_histogram.pdf used on input line 151.
+mple1.distribution_histogram.pdf used on input line 152.
 (pdftex.def)             Requested size: 265.27863pt x 265.27863pt.
  [4
 
@@ -1023,7 +1023,7 @@ bution.pdf Graphic file (type pdf)
 <use /Users/steve/AutoReportLite/analysis_output/Sample1/Sample1.random_distrib
 ution.pdf>
 Package pdftex.def Info: /Users/steve/AutoReportLite/analysis_output/Sample1/Sa
-mple1.random_distribution.pdf used on input line 157.
+mple1.random_distribution.pdf used on input line 158.
 (pdftex.def)             Requested size: 265.27863pt x 265.27863pt.
  [5
 
@@ -1039,7 +1039,7 @@ histogram.pdf Graphic file (type pdf)
 <use /Users/steve/AutoReportLite/analysis_output/Sample2/Sample2.distribution_h
 istogram.pdf>
 Package pdftex.def Info: /Users/steve/AutoReportLite/analysis_output/Sample2/Sa
-mple2.distribution_histogram.pdf used on input line 186.
+mple2.distribution_histogram.pdf used on input line 187.
 (pdftex.def)             Requested size: 265.27863pt x 265.27863pt.
  [7
 
@@ -1053,7 +1053,7 @@ bution.pdf Graphic file (type pdf)
 <use /Users/steve/AutoReportLite/analysis_output/Sample2/Sample2.random_distrib
 ution.pdf>
 Package pdftex.def Info: /Users/steve/AutoReportLite/analysis_output/Sample2/Sa
-mple2.random_distribution.pdf used on input line 192.
+mple2.random_distribution.pdf used on input line 193.
 (pdftex.def)             Requested size: 265.27863pt x 265.27863pt.
  [8
 
@@ -1069,7 +1069,7 @@ histogram.pdf Graphic file (type pdf)
 <use /Users/steve/AutoReportLite/analysis_output/Sample3/Sample3.distribution_h
 istogram.pdf>
 Package pdftex.def Info: /Users/steve/AutoReportLite/analysis_output/Sample3/Sa
-mple3.distribution_histogram.pdf used on input line 221.
+mple3.distribution_histogram.pdf used on input line 222.
 (pdftex.def)             Requested size: 265.27863pt x 265.27863pt.
  [10
 
@@ -1083,7 +1083,7 @@ bution.pdf Graphic file (type pdf)
 <use /Users/steve/AutoReportLite/analysis_output/Sample3/Sample3.random_distrib
 ution.pdf>
 Package pdftex.def Info: /Users/steve/AutoReportLite/analysis_output/Sample3/Sa
-mple3.random_distribution.pdf used on input line 227.
+mple3.random_distribution.pdf used on input line 228.
 (pdftex.def)             Requested size: 265.27863pt x 265.27863pt.
  [11
 
@@ -1099,7 +1099,7 @@ histogram.pdf Graphic file (type pdf)
 <use /Users/steve/AutoReportLite/analysis_output/Sample4/Sample4.distribution_h
 istogram.pdf>
 Package pdftex.def Info: /Users/steve/AutoReportLite/analysis_output/Sample4/Sa
-mple4.distribution_histogram.pdf used on input line 256.
+mple4.distribution_histogram.pdf used on input line 257.
 (pdftex.def)             Requested size: 265.27863pt x 265.27863pt.
  [13
 
@@ -1113,7 +1113,7 @@ bution.pdf Graphic file (type pdf)
 <use /Users/steve/AutoReportLite/analysis_output/Sample4/Sample4.random_distrib
 ution.pdf>
 Package pdftex.def Info: /Users/steve/AutoReportLite/analysis_output/Sample4/Sa
-mple4.random_distribution.pdf used on input line 262.
+mple4.random_distribution.pdf used on input line 263.
 (pdftex.def)             Requested size: 265.27863pt x 265.27863pt.
  [14
 
@@ -1129,7 +1129,7 @@ histogram.pdf Graphic file (type pdf)
 <use /Users/steve/AutoReportLite/analysis_output/Sample5/Sample5.distribution_h
 istogram.pdf>
 Package pdftex.def Info: /Users/steve/AutoReportLite/analysis_output/Sample5/Sa
-mple5.distribution_histogram.pdf used on input line 291.
+mple5.distribution_histogram.pdf used on input line 292.
 (pdftex.def)             Requested size: 265.27863pt x 265.27863pt.
  [16
 
@@ -1143,16 +1143,16 @@ bution.pdf Graphic file (type pdf)
 <use /Users/steve/AutoReportLite/analysis_output/Sample5/Sample5.random_distrib
 ution.pdf>
 Package pdftex.def Info: /Users/steve/AutoReportLite/analysis_output/Sample5/Sa
-mple5.random_distribution.pdf used on input line 297.
+mple5.random_distribution.pdf used on input line 298.
 (pdftex.def)             Requested size: 265.27863pt x 265.27863pt.
  [17
 
  </Users/steve/AutoReportLite/analysis_output/Sample5/Sample5.random_distributi
 on.pdf>]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <6> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 308.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 309.
 
-Overfull \hbox (66.3376pt too wide) in paragraph at lines 312--312
+Overfull \hbox (66.3376pt too wide) in paragraph at lines 313--313
 []\OT1/cmtt/m/n/6 ## [1] "Darwin 15.5.0 Darwin Kernel Version 15.5.0: Tue Apr 1
 9 18:36:36 PDT 2016; root:xnu-3248.50.21~8/RELEASE_X86_64"[] 
  []
@@ -1169,10 +1169,10 @@ Overfull \hbox (66.3376pt too wide) in paragraph at lines 312--312
 \tf@snm=\write8
 \openout8 = `auto-report.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 351.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 351.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 352.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 352.
  (./auto-report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 351.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 352.
 
 
  *File List*
@@ -1330,19 +1330,19 @@ ram.pdf
 .pdf
  ***********
 
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 351.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 352.
 Package rerunfilecheck Info: File `auto-report.out' has not changed.
 (rerunfilecheck)             Checksum: 779B9D28D451653C57973F09B5217EAD;311.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 351.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 352.
  ) 
 Here is how much of TeX's memory you used:
  17236 strings out of 493089
  333688 string characters out of 6134842
- 401643 words of memory out of 5000000
+ 401642 words of memory out of 5000000
  20242 multiletter control sequences out of 15000+600000
  8639 words of font info for 33 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1351,7 +1351,7 @@ Here is how much of TeX's memory you used:
 </usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb><
 /usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></u
 sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on auto-report.pdf (18 pages, 189470 bytes).
+Output written on auto-report.pdf (18 pages, 189494 bytes).
 PDF statistics:
  813 PDF objects out of 1000 (max. 8388607)
  753 compressed objects within 8 object streams
