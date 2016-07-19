@@ -10,7 +10,7 @@ To install AutoReportLite, simply clone this repository with the following termi
 git clone https://github.com/stevekm/AutoReportLite.git
 ```
 
-### Setup
+## Setup Your Pipeline
 
 #### Step 1. 
 Create sample sheet to describe samples for analysis and other relevant information per sample (`sample-sheet.tsv`)
@@ -21,7 +21,7 @@ Setup analysis pipeline script using items from sample sheet (`code/analysis_pip
 #### Step 3.
 Parse the sample sheet to create subdirectories per sample and pass items to the script for analysis (`workflow.Rmd`)
 
-### Report Compilation
+## Compile the Report
 
 #### Step 4.
 Adjust `project_info.txt` file to set project information, file paths, figures, as needed for inclusion in the report. 
